@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import "./src/assets/scss/variable.scss";
+
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+
+
+body{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+    background: $supportivedark;
+}
+.error{
+    margin: 2px;
+    font-size: 13px;
+    color: #FF0000;
+}
+ul{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+h1, h2, h3, h4, h5{
+    padding: 0px;
+    margin: 0px;
+}
+p{
+    padding: 0px;
+    margin: 0px;
+}
+.mat-form-field{
+    width: 100%;    
+} 
+.mat-form-field-outline{
+    background: rgba(255, 255, 255, 0.9);
+}
+.btn{
+    background:$btngrad;
+    text-align: center;
+    display:inline-block;
+    border-radius: $btnradius;
+    border: none;
+    padding: 20px 70px;
+    font-size:18px;
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin:10px 0 20px;     
+    transition: all 0.5s;
+    font-weight: 600;
+}
