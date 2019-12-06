@@ -1,13 +1,12 @@
 @import "./src/assets/scss/variable.scss";
+@import "./src/assets/scss/mixin.scss";
 
 .signup-wrap{
-    width:950px;
+    width:50vw;
     margin:0 auto;
-    position: absolute;
-    top:50%;
-    transform:translate(-50%, -50%);
-    left: 50%;
-    
+    @include absolute-position;
+    @include position-50;
+    transform:$transform-50;
     mat-card{
         padding:30px;     
         background-image:url(/assets/images/regi-bg-a.png);
@@ -17,17 +16,16 @@
             height:261px;
             width: 165px;
             content: '';
-            position: absolute;
+            @include absolute-position;
             background-image:url(/assets/images/regi-bg-b.png);
             background-position: 0 center;
             background-repeat: no-repeat;
-            left: 0;
-            top: 0;            
+            @include position-none;         
         }
     .form-wrap{
         width: 100%;
-        display: flex;
-        position: relative;
+        @include flex-center;
+        @include relative-position;
         z-index: 9;        
         .regi-col-7{
             width: 70%;
@@ -36,7 +34,7 @@
         .regi-col-3{
             width: 30%;
             padding: 0 10px;
-            text-align: center;
+            @include text-center;
         .upload-img{
             width: 130px;
             height: 130px;
@@ -61,33 +59,42 @@
         }
         }
     .regi-col-5{
-        width: 50%;
+        width: $half-width;
         padding: 0 30px;
+    }
+   ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+        padding: 0.8em 0 0.8em 0;
+    }
+    ::ng-deep .mat-form-field-appearance-outline .mat-form-field-label {
+        margin-top:0;
+        top: 1.5em;
+        font-size: 14px;
     }
     }                 
     }             
     h2{
         font-size: 30px;
         margin-bottom: 25px;
-        text-align: center;
+        @include text-center;
     }
    
 }
 
+
 .login-bottom-action{
     margin-top: 20px;
-    text-align: center;
+    @include text-center;
     button{
         width: 300px; 
         span{
             cursor: pointer;
             display: inline-block;
-            position: relative;
+            @include relative-position;
             transition: 0.5s; 
             &:after{
                 font-family: "FontAwesome";
                 content: '\f101';
-                position: absolute;
+                @include absolute-position;                
                 opacity: 0;
                 top: 0;
                 right: -20px;                    

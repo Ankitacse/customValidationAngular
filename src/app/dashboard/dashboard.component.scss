@@ -1,0 +1,282 @@
+.body-wrap{
+    display: flex;
+    max-width: 100%;
+    margin-right: 40px;
+    justify-content: space-between;
+    .body-left-col{
+        width:72%;
+    .modified-col{
+        position: relative;
+        h2{
+            font-size: 22px;
+            color: #7e7e7e;
+            font-weight:500;
+            letter-spacing: 1px;
+            margin-bottom:15px;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            li{                
+                width:31.5%;               
+                mat-card{
+                    width: 100%;
+                    border-radius:10px;
+                    box-shadow:0 0 5px rgba(0, 0, 0, 0.1);
+                    padding: 30px;
+                    h3{
+                        font-size: 22px;
+                        color: #000000;
+                        font-weight:400;
+                        position: relative;
+                        padding-left: 75px;
+                        span{
+                            display: block;
+                        }                    
+                    }
+                    &:hover{
+                        box-shadow:0 0 20px rgba(4, 118, 191, 0.3);
+                    }
+                .customer-mg-icon{
+                    background-image:url(/assets/images/customer-mg-big.png);
+                    background-position: 0 center;
+                    background-repeat: no-repeat;
+                    width: 58px;
+                    height: 45px;
+                }
+                .appraisal-mg-icon{
+                    background-image:url(/assets/images/appisal-mg-big.png);
+                    background-position: 0 center;
+                    background-repeat: no-repeat;
+                    width: 46px;
+                    height: 48px;
+                }
+                .repair-mg-icon{
+                    background-image:url(/assets/images/repair-mg-big.png);
+                    background-position: 0 center;
+                    background-repeat: no-repeat;
+                    width: 46px;
+                    height: 48px;
+                }
+                .card-count{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top:50px;
+                    font-size: 25px;
+                    color: #abaaaa;
+                    ul{
+                        display: flex;
+                        li{
+                            display:inline-block;
+                            margin-right: -10px;
+                            .round-img{
+                                width: 30px;
+                                height:30px;                                
+                                img{
+                                    width: 100%;
+                                    border-radius:100px;
+                                    border: solid 2px #fff;
+                                    margin-left: -10px;
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+            }
+        }
+    }
+
+    .repairs-table{        
+        margin-top:40px;
+        h2{
+            font-size: 22px;
+            color:#7e7e7e;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .table-top{
+            display:flex;
+            flex-direction:row;           
+            font-weight:500;
+            mat-card{
+                display:flex;
+                flex-direction:row;
+                width: 100%;
+                background:none;
+                box-shadow: none;
+                font-size: 15px;
+                color: #a3b3bd;
+            .col-1{
+                width: 5%;                
+            }
+            .col-2{
+                width: 28.5%;               
+            }            
+            }
+            
+            
+        }
+        .table-rept{
+            display:flex;
+            flex-direction:row;
+            font-size: 15px;
+            color: #a3b3bd;
+            font-weight:500;
+            mat-card{
+                width: 100%;
+                margin:7px 0;
+                display:flex;
+                flex-direction:row;
+                box-shadow:0 0 5px rgba(0, 0, 0, 0.1);
+                border-radius:7px;
+                padding: 20px 20px 15px;
+                svg{
+                    float: left;
+                    margin-top: -8px;
+                    fill: #0476bf;
+                   }
+                dt{
+                    color: #a1a1a1;                                     
+                }
+                a{
+                    color: #a1a1a1;
+                    font-size:30px;
+                    text-decoration: none;
+                    line-height: 6px;
+                }                
+            &:hover{
+                background-color: #0476bf;
+                color: #fff !important; 
+                svg{
+                    fill: #ffa400;
+                   }
+                dt{
+                    color: #fff;
+                } 
+                a{
+                    color: #fff;
+                }
+                ::ng-deep .mat-checkbox-frame{
+                    border-color: #fff !important;
+                }                
+            }                
+            .col-1{
+                width: 5%;
+            }
+            .col-2{
+                width: 30%;                
+                ul{
+                    display: flex;
+                    li{
+                        display:inline-block;
+                        margin-right: -5px;
+                        .round-img{
+                            width: 25px;
+                            height:25px;                                
+                            img{
+                                width: 100%;
+                                border-radius:100px;
+                                border: solid 2px #fff;                                
+                            }
+                        }
+                    }
+                }
+            }
+            .col-3{
+               width: 10%;
+               
+            }
+            }            
+            }
+    }
+    
+}
+.body-right-col{
+    width:25%;
+.overview-col{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content: space-between;
+    h2{
+    font-size: 22px;
+    color: #7e7e7e;
+    font-weight:500;
+    letter-spacing: 1px;
+    margin-bottom:15px;
+    display: flex;
+    width: 100%;
+    }
+    mat-card{
+        width: 47%;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        border-radius:10px;
+        display: block;
+        text-align: center;
+        padding: 35px 0;
+        margin-bottom: 25px;
+        &:hover{
+            box-shadow: 0 0 20px rgba(4, 118, 191, 0.3);
+        }
+        .crd-sm-icon{
+            display: inline-block;
+            width:41px;
+            height: 41px;
+            background: #c4e6f9;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius:100%;
+            line-height:52px;
+        }
+        .crd-icon-orange-bg{
+            background:#ffe8be;
+        }
+        .crd-icon-green-bg{
+            background:#e0ffe0;
+        }
+        .crd-icon-red-bg{
+            background:#ffdddd;
+        }
+        h3{
+            color: #0476bf;
+            display: block;
+            font-size: 25px;
+            padding-bottom: 7px;
+            font-weight: 500;
+        }
+        p{
+            color: #b0b0b0;
+            display: block;
+            font-size: 15px;
+        }
+    }
+}
+
+
+.growth-mng-col{
+    width: 100%;
+    margin-top: 10px;
+    h2{
+        font-size: 22px;
+        color: #7e7e7e;
+        font-weight:500;
+        letter-spacing: 1px;
+        margin-bottom:15px;
+    }
+    mat-card{
+        width: 100%;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        border-radius:10px;        
+        img{
+            width: 100%;
+        }
+    }
+    }
+
+
+}
+}

@@ -1,0 +1,49 @@
+@import "./src/assets/scss/variable.scss";
+
+@mixin text-center{
+    text-align: center;
+}
+@mixin flex{
+    display: flex;
+}
+@mixin flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin transition{
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+}
+@mixin transition-5s{
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+}
+@mixin absolute-position{
+    position: absolute;
+}
+@mixin relative-position{
+    position: relative;
+}
+@mixin position-50{
+    top: 50%;
+    left: 50%;
+}
+@mixin position-none{
+    top: 0;
+    left: 0;
+}
+@mixin display-i-b{
+    display: inline-block;
+}
+@mixin display-b{
+    display: block;
+}
+@mixin text-decoration{
+    text-decoration: underline;
+}
+@mixin text-decoration-none{
+    text-decoration: none;
+}
