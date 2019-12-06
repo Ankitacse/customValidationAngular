@@ -2,16 +2,19 @@
 @import "./src/assets/scss/mixin.scss";
 
 .signup-wrap{
-    width:50vw;
+    width:55vw;
     margin:0 auto;
     @include absolute-position;
-    @include position-50;
-    transform:$transform-50;
+    top: 20px;    
+    left: 0;
+    transform: translate(40%, 0%); 
+    height: 100vh;   
     mat-card{
-        padding:30px;     
+        padding:0 15px;     
         background-image:url(/assets/images/regi-bg-a.png);
         background-position: right 0;
         background-repeat: no-repeat;
+        padding-top:30px;
         &:after{
             height:261px;
             width: 165px;
@@ -26,10 +29,13 @@
         width: 100%;
         @include flex-center;
         @include relative-position;
-        z-index: 9;        
+        z-index: 9;
+        ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+            margin: 0;
+        }       
         .regi-col-7{
             width: 70%;
-            padding: 0 30px;
+            padding: 0 15px;
         }
         .regi-col-3{
             width: 30%;
@@ -60,7 +66,7 @@
         }
     .regi-col-5{
         width: $half-width;
-        padding: 0 30px;
+        padding: 0 15px;
     }
    ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
         padding: 0.8em 0 0.8em 0;
@@ -82,7 +88,7 @@
 
 
 .login-bottom-action{
-    margin-top: 20px;
+    margin-top:0px;
     @include text-center;
     button{
         width: 300px; 
