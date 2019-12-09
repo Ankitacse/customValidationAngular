@@ -1,0 +1,98 @@
+.min-header{
+    max-width:100%;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin: 20px 0 40px;
+    border-radius:50px;
+    margin-right:40px;
+    padding:25px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2{
+        font-weight:500;
+        letter-spacing: 0.5px;
+    }
+    .top-right{
+        font-size: 16px;
+    ul{
+        list-style: none;
+    li{
+        display: inline-block;        
+        .app-search{
+            font-size: 16px;
+            color: #8687ba; 
+            position: relative; 
+            border-right:solid 1px #dadada;
+            margin-right: 15px;
+            float: left;           
+        .form-control{
+            border: none;
+            font-size: 16px; 
+            color: #8687ba;
+            max-width: 115px;
+            transition: 0.5s ease-in; 
+            &:focus{                
+                font-size: 16px; 
+                max-width: 180px;
+                display: inline-block;                              
+                border-radius: 40px;                
+            }                    
+        }
+        .fa-search-sm{
+            background-image:url(/assets/images/search-icon.png);
+            background-position: 0 center;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;                    
+            transition: 0.5s;
+            margin-top: 3px;
+            float: left;                      
+        }        
+        }
+        
+        a{
+            color: #fff;
+        }
+        .upload-img{
+            width: 36px;
+            height: 36px;
+            display: inline-block;           
+            img{
+                width: 100%;
+            }        }
+        
+        .user-neme{
+            display: inline-block;
+            padding-right: 10px;            
+            float: left;
+            line-height: 36px;
+            margin-top:3px;
+            color: #4c4993;
+        }
+        
+    }
+    .notifi-icon{
+        position: relative;
+        .notifi-count{
+            background:#ffa400;
+            border-radius:100px;
+            text-align: center;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: -8px;
+            left: 10px;
+            color: #fff;
+            line-height: 20px;
+            font-weight:400;
+        }
+
+    }
+    .user-upload{
+        margin-left: 50px;
+    }
+    }
+    }
+}

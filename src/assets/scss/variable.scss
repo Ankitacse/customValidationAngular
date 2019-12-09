@@ -24,7 +24,7 @@ $navy: #012037;
 $slate: #586d7c;
 $silver: #e3e5e8;
 $azure: #1294f4;
-$silver-two: #dddfe2;
+$silver-two: #f2f3f7;
 $dark-sea-green: #0da044;
 $nav-bg: #fafafa;
 $lead-check: #dcdfe2;
@@ -46,11 +46,31 @@ $btngrad:linear-gradient(to right, #3eb2fd , #0476c0);
 $btngradhover:linear-gradient(to right, #0476c0 , #3eb2fd);
 $uploadgrad:linear-gradient(to right, #ffa238 , #fbcb97);
 $uploadgradhover:linear-gradient(to right, #7effa5 , #18bc4a);
+$menubg:linear-gradient(to right, #1c93de , #0577c0);
+$menubghover:linear-gradient(to right, #79c9fc, #26a8fa);
 
 
-
+//width
+$full-width:100%;
+$half-width:50%;
 
 
 // Radius
-
 $btnradius:50px;
+$radius-5:5px;
+
+
+
+//transform
+
+$transform-50:translate(-50%, -55%);
+
+
+//position
+$abposition:absolute;
+$reposition:relative;
+
+//font-size
+$font15:15px;
+$font20:20px;
+$font30:30px;

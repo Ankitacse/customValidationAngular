@@ -1,0 +1,25 @@
+@import "./src/assets/scss/mixin.scss";
+@import "./src/assets/scss/variable.scss";
+.text-center{
+    text-align: center;
+}
+.menu-icon{
+    margin-bottom:30px;
+}
+ul{
+   list-style: none; 
+   li{
+       font-size:15px;
+       @include display-b;
+       a{
+        margin:10px 0;        
+        @include display-i-b;
+        padding:15px 25px 10px 35px;   
+        &:hover{
+            background:$menubghover;
+            box-shadow: 0 0 15px rgb(4, 111, 192);
+            border-radius:0 5px 5px 0;             
+        }
+       }
+   }
+}

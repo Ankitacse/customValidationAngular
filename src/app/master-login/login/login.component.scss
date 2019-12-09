@@ -1,12 +1,14 @@
-@import "./src/assets/scss/variable.scss";
+@import "./src/assets/scss/mixin.scss";
 
-.login-form-wrap{
-    min-width: 500px;
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -55%);
-    text-align: center;
+.login-form-wrap{    
+    @include absolute-position;
+    @include position-50;
+    transform:$transform-50;
+    @include text-center;
+    max-width: 480px;    
+    img{
+        width: 60%;
+    }
     mat-card{
         margin-top: 40px;
         }
@@ -14,10 +16,18 @@
 
 .login-form{              
     padding:10px 20px;
-    border-radius:5px;
+    border-radius:$radius-5;
     h2{
-    font-size: 30px;
+    font-size: $font20;
     margin-bottom: 25px;
+    }
+    ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+        padding: 0.8em 0 0.8em 0;
+    }
+    ::ng-deep .mat-form-field-appearance-outline .mat-form-field-label {
+        margin-top:0;
+        top: 1.5em;
+        font-size: 14px;
     }
     .login-bottom-action{
         margin-top: 20px;
@@ -25,17 +35,17 @@
             width: 300px; 
             span{
                 cursor: pointer;
-                display: inline-block;
-                position: relative;
-                transition: 0.5s; 
+                @include display-i-b;
+                @include relative-position;
+                @include transition-5s;
                 &:after{
                     font-family: "FontAwesome";
                     content: '\f101';
-                    position: absolute;
+                    @include absolute-position;
                     opacity: 0;
                     top: 0;
                     right: -20px;                    
-                    transition: 0.5s;
+                    @include transition-5s;
                 }             
             }             
             &:hover{
@@ -54,13 +64,16 @@
 
      .forgot-wrap{
         color: $black; 
-        display: flex;
+        @include flex-center;
         justify-content: space-between;
+        font-size: 13px;     
         a{
-        color: $primary; 
-        &:hover{
-            text-decoration: underline;
-            cursor: pointer;  
+        color: $primary;
+        @include text-decoration-none;
+        font-size: 13px;
+        &:hover{            
+            cursor: pointer;
+            @include text-decoration;  
           } 
         }
         
