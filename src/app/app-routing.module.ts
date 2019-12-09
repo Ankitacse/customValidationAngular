@@ -1,41 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MasterLoginComponent } from 'src/app/master-login/master-login.component';
 import { MasterDashboardComponent } from 'src/app/master-dashboard/master-dashboard.component';
-import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
-import { LoginComponent } from 'src/app/login/login.component';
-import { SignupComponent } from 'src/app/signup/signup.component';
-import { CustomersComponent } from 'src/app/customers/customers.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'user', pathMatch: 'full'},
+  { path: '', redirectTo: 'user', pathMatch: 'full' },
   {
     path: 'user',
-    component: MasterLoginComponent,
-    children: [
-      {path: '', redirectTo: 'login', pathMatch: 'full'},
-      { path: 'login', component: LoginComponent },
-      { path: 'signup', component: SignupComponent }
-    ]
+    loadChildren: () => import('./master-login/master-login.module').then(m => m.MasterLoginModule)
   },
   {
-    path:'app',
-    component: MasterDashboardComponent,
-    children: [
-      {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-      {path: 'dashboard', component: DashboardComponent}
-    ]
-  },
-  {
-    path:'admin',
-    component: MasterDashboardComponent,
-    children: [
-      {path: '', redirectTo: 'customers', pathMatch: 'full'},
-      {path: 'customers', component: CustomersComponent}
-    ]
+    path: 'app',
+    loadChildren: () => import('./master-dashboard/master-dashboard.module').then(m => m.MasterDashboardModule)
   }
-
 ];
 
 @NgModule({
