@@ -3,8 +3,9 @@
     max-width: 100%;
     margin-right: 40px;
     justify-content: space-between;
+    min-height: 100vh;
     .body-left-col{
-        width:72%;
+        width:70%;
     .modified-col{
         position: relative;
         h2{
@@ -20,12 +21,12 @@
             flex-direction: row;
             justify-content: space-between;
             li{                
-                width:31.5%;               
+                width:32%;               
                 mat-card{
                     width: 100%;
                     border-radius:10px;
                     box-shadow:0 0 5px rgba(0, 0, 0, 0.1);
-                    padding: 30px;
+                    padding: 20px;
                     h3{
                         font-size: 22px;
                         color: #000000;
@@ -37,7 +38,7 @@
                         }                    
                     }
                     &:hover{
-                        box-shadow:0 0 20px rgba(4, 118, 191, 0.3);
+                        box-shadow:0 0 20px rgba(4, 118, 191, 0.3);                       
                     }
                 .customer-mg-icon{
                     background-image:url(/assets/images/customer-mg-big.png);
@@ -63,17 +64,19 @@
                 .card-count{
                     display: flex;
                     justify-content: space-between;
-                    margin-top:50px;
+                    margin-top:40px;
                     font-size: 25px;
                     color: #abaaaa;
+                    margin-right: 10px;                    
                     ul{
+                        margin-left: 20px;
                         display: flex;
                         li{
                             display:inline-block;
                             margin-right: -10px;
                             .round-img{
-                                width: 30px;
-                                height:30px;                                
+                                width: 25px;
+                                height:25px;                                
                                 img{
                                     width: 100%;
                                     border-radius:100px;
@@ -114,8 +117,12 @@
                 width: 5%;                
             }
             .col-2{
-                width: 28.5%;               
-            }            
+                width: 35%;               
+            }
+            .col-3{
+                width: 25%;               
+            }  
+
             }
             
             
@@ -166,29 +173,32 @@
             }                
             .col-1{
                 width: 5%;
-            }
+            }            
             .col-2{
-                width: 30%;                
-                ul{
-                    display: flex;
-                    li{
-                        display:inline-block;
-                        margin-right: -5px;
-                        .round-img{
-                            width: 25px;
-                            height:25px;                                
-                            img{
-                                width: 100%;
-                                border-radius:100px;
-                                border: solid 2px #fff;                                
-                            }
+                width: 35%;
+            }
+            .col-3{
+               width: 20%;
+               margin-top: -4px;
+               ul{
+                display: flex;
+                li{
+                    display:inline-block;
+                    margin-right: -5px;
+                    .round-img{
+                        width: 25px;
+                        height:25px;                                
+                        img{
+                            width: 100%;
+                            border-radius:100px;
+                            border: solid 2px #fff;                                
                         }
                     }
                 }
+            }               
             }
-            .col-3{
-               width: 10%;
-               
+            .col-4{
+                width:5%;
             }
             }            
             }
@@ -196,7 +206,7 @@
     
 }
 .body-right-col{
-    width:25%;
+    width:27%;
 .overview-col{
     display: flex;
     flex-wrap: wrap;
@@ -217,7 +227,7 @@
         border-radius:10px;
         display: block;
         text-align: center;
-        padding: 35px 0;
+        padding: 30px 0;
         margin-bottom: 25px;
         &:hover{
             box-shadow: 0 0 20px rgba(4, 118, 191, 0.3);

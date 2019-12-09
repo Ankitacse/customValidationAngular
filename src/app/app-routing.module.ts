@@ -5,6 +5,7 @@ import { MasterDashboardComponent } from 'src/app/master-dashboard/master-dashbo
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 import { LoginComponent } from 'src/app/login/login.component';
 import { SignupComponent } from 'src/app/signup/signup.component';
+import { CustomersComponent } from 'src/app/customers/customers.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,16 @@ const routes: Routes = [
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
       {path: 'dashboard', component: DashboardComponent}
     ]
+  },
+  {
+    path:'admin',
+    component: MasterDashboardComponent,
+    children: [
+      {path: '', redirectTo: 'customers', pathMatch: 'full'},
+      {path: 'customers', component: CustomersComponent}
+    ]
   }
+
 ];
 
 @NgModule({

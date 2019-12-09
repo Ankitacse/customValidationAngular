@@ -21,7 +21,8 @@ import { LoginComponent } from 'src/app/login/login.component';
 import { SignupComponent } from 'src/app/signup/signup.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { CustomersComponent } from './customers/customers.component'; 
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     LoginComponent,
     SignupComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CustomersComponent
   ],
   imports: [
     BrowserModule,
