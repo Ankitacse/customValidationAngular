@@ -4,8 +4,10 @@
             <app-sidebar></app-sidebar>
         </div>
         <div class="main-outer">
-            <app-header></app-header>           
-            <router-outlet></router-outlet> 
+            <app-header></app-header>
+            <div [@fadeIn]="prepareRoute(outlet)">
+                <router-outlet #outlet="outlet"></router-outlet>
+            </div>
             <app-footer></app-footer>
         </div>
     </div>

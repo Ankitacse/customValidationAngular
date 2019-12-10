@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CustomersComponent } from './customers.component';
 
 const customerRoutes: Routes = [
-    { path: '', component: CustomersComponent }
+    { path: '', component: CustomersComponent, data: {animation: 'CustomersPage'} }
 ];
 
 export const CustomerRoutes: ModuleWithProviders = RouterModule.forChild(customerRoutes);

@@ -4,7 +4,6 @@ import { MasterLoginComponent } from './master-login.component';
 import { MasterLoginRoutes } from './master-login.routing';
 import { MaterialsModule } from '../core/materials/materials.module';
 
-
 @NgModule({
   declarations: [
     MasterLoginComponent

@@ -1,10 +1,11 @@
 @import "./src/assets/scss/variable.scss";
 .login-img{
-    height: 100vh;      
+    min-height: 105vh;      
     background-image: url(/assets/images/login-bg.png); 
     background-position: right 0;
     background-repeat: no-repeat;
     background-size: contain;
+    background-attachment: fixed;
 }
 .login-wrap{
     width: 100%;
