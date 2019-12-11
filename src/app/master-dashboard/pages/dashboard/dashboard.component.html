@@ -1,0 +1,115 @@
+<div class="body-wrap">
+    <div class="body-left-col">
+        <div class="modified-col">
+            <h2>Last Modified</h2>
+            <ul [@listAnimation]="lastModification.length">
+                <li *ngFor='let item of lastModification'>
+                    <mat-card>
+                        <h3 [ngClass]="item.icon">{{item.title}}
+                            <span>Management</span>
+                        </h3>
+                        <div class="card-count">
+                            {{item.count}}
+                            <ul>
+                                <li>
+                                    <div class="round-img">
+                                        <img alt="" src="assets/images/img1.png" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="round-img">
+                                        <img alt="" src="assets/images/img2.png" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="round-img">
+                                        <img alt="" src="assets/images/img3.png" />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </mat-card>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="repairs-table">
+            <h2>Open Repairs Task</h2>
+            <div class="table-top">
+                <mat-card>
+                    <div class="col-1">
+                        <mat-checkbox></mat-checkbox>
+                    </div>
+                    <div class="col-2">Name</div>
+                    <div class="col-2"> Modified Date</div>
+                    <div class="col-3">Members</div>
+                </mat-card>
+            </div>
+            <div [@listAnimation]="items.length">
+                <div *ngFor='let item of items' class="table-rept">
+                    <mat-card>
+                        <div class="col-1">
+                            <mat-checkbox></mat-checkbox>
+                        </div>
+                        <div class="col-2">
+                            <svg width="35" height="35" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 5L8 3H3c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1h-5z" />
+                            </svg> Damon Zappariello
+                        </div>
+
+                        <div class="col-2">
+                            <dt>22, 2019, 3:40PM</dt>
+                        </div>
+                        <div class="col-3">
+                            <ul>
+                                <li>
+                                    <div class="round-img">
+                                        <img alt="" src="assets/images/img1.png" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="round-img">
+                                        <img alt="" src="assets/images/img2.png" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="round-img">
+                                        <img alt="" src="assets/images/img3.png" />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-4">
+                            <a href="JavaScript:void(0)">...</a>
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="body-right-col">
+        <div class="overview-col">
+            <h2>Overview</h2>
+            <div [@listAnimation]="overview.length" class="overview-row">
+                <mat-card *ngFor="let item of overview">
+                    <i class="crd-sm-icon {{item.class}}">
+                        <img alt="" src="assets/images/{{item.icon}}.png" />
+                    </i>
+                    <h3>{{item.count}}</h3>
+                    <p>{{item.title}}</p>
+                </mat-card>
+            </div>
+        </div>
+
+        <div class="growth-mng-col" *ngIf="overview.length">
+            <h2>Growth Management</h2>
+            <mat-card @slideInUp>
+                <img alt="" src="assets/images/graph-img.jpg" />
+            </mat-card>
+        </div>
+
+    </div>
+</div>

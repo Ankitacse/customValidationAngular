@@ -5,11 +5,13 @@
         </div>
         <div class="main-outer">
             <div class="header-toprow">
-                <app-header></app-header> 
+                <app-header></app-header>
             </div>
-            <div class="middle-row">          
-                <router-outlet></router-outlet> 
+
+            <div [@fadeIn]="prepareRoute(outlet)" class="middle-row">
+                <router-outlet #outlet="outlet"></router-outlet>
             </div>
+
             <div class="footer-bottomrow">
                 <app-footer></app-footer>
             </div>
