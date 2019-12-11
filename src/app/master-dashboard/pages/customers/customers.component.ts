@@ -12,7 +12,9 @@ export class CustomersComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit() {
-    this.items = [1, 2, 3, 4, 5];
+    setTimeout(() => {
+      this.items = [1, 2, 3, 4, 5];
+    }, 10);
   }
 
   ngAfterViewInit() {

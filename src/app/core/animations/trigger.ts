@@ -13,7 +13,7 @@ export const slideInUp =
 export const fadeIn =
     trigger('fadeIn', [
         transition('* <=> *',
-            animate(1000, keyframes([
+            animate(800, keyframes([
                 style({ opacity: 0, offset: 0 }),
                 style({ opacity: 1, offset: 1 })
             ]))
@@ -22,12 +22,24 @@ export const fadeIn =
 
 export const listAnimation =
     trigger('listAnimation', [
-        transition('* => *', [ // each time the binding value changes
+        transition('* => *', [
             query(':enter', [
-              style({ opacity: 0 }),
-              stagger(200, [
-                animate('0.5s', style({ opacity: 1 }))
-              ])
+                style({ opacity: 0, transform: 'translate3d(0, 20%, 0)' }),
+                stagger(200, [
+                    animate('0.2s', style({ opacity: 1, transform: 'translate3d(0, 0, 0)' }))
+                ])
             ], { optional: true })
-          ])
+        ])
+    ]);
+
+export const listAnimationFadeinLeft =
+    trigger('listAnimationFadeinLeft', [
+        transition('* => *', [
+            query(':enter', [
+                style({ opacity: 0, transform: 'translate3d(-10%, 0, 0)' }),
+                stagger(200, [
+                    animate('0.2s', style({ opacity: 1, transform: 'translate3d(0, 0, 0)' }))
+                ])
+            ], { optional: true })
+        ])
     ]);
