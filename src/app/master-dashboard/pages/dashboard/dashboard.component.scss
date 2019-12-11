@@ -1,3 +1,5 @@
+@import "./src/assets/scss/variable.scss";
+@import "./src/assets/scss/mixin.scss";
 .body-wrap{
     display: flex;
     max-width: 100%;
@@ -9,7 +11,7 @@
     .modified-col{
         position: relative;
         h2{
-            font-size: 22px;
+            font-size: 1.2rem;
             color: #7e7e7e;
             font-weight:500;
             letter-spacing: 1px;
@@ -25,10 +27,11 @@
                 mat-card{
                     width: 100%;
                     border-radius:10px;
-                    box-shadow:0 0 5px rgba(0, 0, 0, 0.1);
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
                     padding: 20px;
+                    @include transition-5s;
                     h3{
-                        font-size: 22px;
+                        font-size: 1.1rem;
                         color: #000000;
                         font-weight:400;
                         position: relative;
@@ -38,7 +41,8 @@
                         }                    
                     }
                     &:hover{
-                        box-shadow:0 0 20px rgba(4, 118, 191, 0.3);                       
+                        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.20), 0 3px 5px rgba(0, 0, 0, 0.20);
+                        transform: translateY(-0.25em);                   
                     }
                 .customer-mg-icon{
                     background-image:url(/assets/images/customer-mg-big.png);
@@ -65,7 +69,7 @@
                     display: flex;
                     justify-content: space-between;
                     margin-top:40px;
-                    font-size: 25px;
+                    font-size: 1.2rem;
                     color: #abaaaa;
                     margin-right: 10px;                    
                     ul{
@@ -95,7 +99,7 @@
     .repairs-table{        
         margin-top:40px;
         h2{
-            font-size: 22px;
+            font-size: 1.2rem;
             color:#7e7e7e;
             font-weight: 500;
             letter-spacing: 1px;
@@ -111,7 +115,7 @@
                 width: 100%;
                 background:none;
                 box-shadow: none;
-                font-size: 15px;
+                font-size: .8rem;
                 color: #a3b3bd;
             .col-1{
                 width: 5%;                
@@ -130,7 +134,7 @@
         .table-rept{
             display:flex;
             flex-direction:row;
-            font-size: 15px;
+            font-size: .8rem;
             color: #a3b3bd;
             font-weight:500;
             mat-card{
@@ -213,7 +217,7 @@
     flex-direction:row;
     justify-content: space-between;
     h2{
-    font-size: 22px;
+    font-size: 1.2rem;
     color: #7e7e7e;
     font-weight:500;
     letter-spacing: 1px;
@@ -225,13 +229,14 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        width: 100%;
         mat-card{
             width: 47%;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             border-radius:10px;
             display: block;
             text-align: center;
-            padding: 30px 0;
+            padding: 35px 0;
             margin-bottom: 25px;
             &:hover{
                 box-shadow: 0 0 20px rgba(4, 118, 191, 0.3);
@@ -258,14 +263,14 @@
             h3{
                 color: #0476bf;
                 display: block;
-                font-size: 25px;
+                font-size: 1.1rem;
                 padding-bottom: 7px;
                 font-weight: 500;
             }
             p{
                 color: #b0b0b0;
                 display: block;
-                font-size: 15px;
+                font-size: .8rem;
             }
         }
     }
@@ -276,7 +281,7 @@
     width: 100%;
     margin-top: 10px;
     h2{
-        font-size: 22px;
+        font-size: 1.2rem;
         color: #7e7e7e;
         font-weight:500;
         letter-spacing: 1px;

@@ -39,6 +39,9 @@ p{
 .mat-form-field-outline{
     background: rgba(255, 255, 255, 0.9);
 }
+a{
+    outline: none;
+}
 .btn{
     background:$btngrad;
     text-align: center;
