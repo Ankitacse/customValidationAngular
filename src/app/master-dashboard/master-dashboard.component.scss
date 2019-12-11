@@ -1,12 +1,24 @@
 @import "./src/assets/scss/mixin.scss";
 
+.header-toprow{
+    flex: 0 0 auto;    
+}
+.middle-row{
+    flex: 1 1 auto;
+}
+.footer-bottomrow{
+    flex: 0 0 auto;
+}
+
+
+
 .dashboard-container{
     @include flex;
     min-height: 100vh;
     flex-direction: column;
     margin: 0;
     background: $silver-two;
-    .main-wrap{
+      .main-wrap{
         flex: 1;
         @include flex;
         z-index: 8;

@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: center;
 }
+
 @mixin transition{
     transition: all .2s;
     -webkit-transition: all .2s;
