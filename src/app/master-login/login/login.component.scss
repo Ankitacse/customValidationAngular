@@ -1,5 +1,5 @@
 @import "./src/assets/scss/mixin.scss";
-
+@import "./src/assets/scss/variable.scss";
 .login-form-wrap{    
     @include absolute-position;
     @include position-50;

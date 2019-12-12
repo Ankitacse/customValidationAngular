@@ -2,6 +2,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 @import "./src/assets/scss/mixin.scss";
+@import "./src/assets/scss/variable.scss";
 
 *{
     box-sizing: border-box;
@@ -58,6 +59,16 @@ a{
     transition: all 0.5s;
     font-weight: 600;
 }
+
+.line{
+float: left;
+width: 140px;
+height: 80px;
+margin-top: 12px;
+border-radius: 7px;
+@include background-gradient;
+animation: shine-lines $animation-duration infinite linear;
+}
 .mat-form-field-appearance-legacy .mat-form-field-underline{
     border: solid 1px #fff;
     color: #8687ba;
@@ -65,76 +76,12 @@ a{
 .mat-form-field-infix{
     color: #8687ba;
 }
-@-webkit-keyframes swing
-{
-    15%
-    {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
-    }
-    30%
-    {
-        -webkit-transform: translateX(-5px);
-       transform: translateX(-5px);
-    } 
-    50%
-    {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
-    }
-    65%
-    {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
-    }
-    80%
-    {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
-    }
-    100%
-    {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
-@keyframes swing
-{
-    15%
-    {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
-    }
-    30%
-    {
-        -webkit-transform: translateX(-5px);
-        transform: translateX(-5px);
-    }
-    50%
-    {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
-    }
-    65%
-    {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
-    }
-    80%
-    {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
-    }
-    100%
-    {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
 
-.swing:hover{
--webkit-animation: swing 1s ease;
-animation: swing 1s ease;
--webkit-animation-iteration-count: 1;
-animation-iteration-count: 1;
+@keyframes shine-lines{   
+0%{
+  background-position: -100px
+}
+40%, 100%{
+  background-position: 140px
+}
 }
