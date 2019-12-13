@@ -43,7 +43,7 @@ ul{
             border-radius:0 5px 5px 0; 
         }
         &:hover:before{
-            width: 100%;
+            width: 92%;            
         }
         .dashboard-icon{
             position: relative;
@@ -57,8 +57,7 @@ ul.full-menu{
     a{
         color: #fff;
         text-decoration: none;
-        font-size:.8rem;
-        max-width: 238px;
+        font-size:.8rem;        
         span.abc{
             padding-left: 10px;            
             position: relative;

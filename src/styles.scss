@@ -43,29 +43,21 @@ p{
 a{
     outline: none;
 }
-.btn{
-    background:$btngrad;
+.btn{    
     text-align: center;
     display:inline-block;
     border-radius: $btnradius;
-    border: none;
-    padding: 17px 70px;
+    border: none;   
     font-size:17px;
     color: $white;
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
-    margin:10px 0 20px;     
     transition: all 0.5s;
     font-weight: 600;
 }
 
-.line{
-float: left;
-width: 140px;
-height: 80px;
-margin-top: 12px;
-border-radius: 7px;
+.btn-loder{
 @include background-gradient;
 animation: shine-lines $animation-duration infinite linear;
 }

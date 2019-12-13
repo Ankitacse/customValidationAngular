@@ -32,7 +32,10 @@
     .login-bottom-action{
         margin-top: 20px;
         button{
-            width: 300px; 
+            width: 300px;
+            background:$btngrad;
+            padding: 17px 70px;
+            margin:10px 0 15px;
             span{
                 cursor: pointer;
                 @include display-i-b;
