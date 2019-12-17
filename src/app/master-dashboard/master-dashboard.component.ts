@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { fadeIn } from '../core/animations/trigger';
 import { RouterOutlet } from '@angular/router';
+import { SidebarComponent } from './layouts/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-master-dashboard',
@@ -11,8 +12,10 @@ import { RouterOutlet } from '@angular/router';
   ]
 })
 export class MasterDashboardComponent implements OnInit {
+  @ViewChild(SidebarComponent, { static: true }) sideNav: SidebarComponent;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

@@ -1,5 +1,5 @@
 @import "./src/assets/scss/mixin.scss";
-
+@import "./src/assets/scss/variable.scss";
 .login-form-wrap{    
     @include absolute-position;
     @include position-50;
@@ -32,7 +32,10 @@
     .login-bottom-action{
         margin-top: 20px;
         button{
-            width: 300px; 
+            width: 300px;
+            background:$btngrad;
+            padding: 17px 70px;
+            margin:10px 0 15px;
             span{
                 cursor: pointer;
                 @include display-i-b;

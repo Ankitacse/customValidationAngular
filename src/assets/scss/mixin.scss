@@ -1,5 +1,6 @@
 @import "./src/assets/scss/variable.scss";
 
+
 @mixin text-center{
     text-align: center;
 }
@@ -48,4 +49,11 @@
 @mixin text-decoration-none{
     text-decoration: none;
 }
+
+@mixin background-gradient{
+background-image: linear-gradient(90deg, $base-color 20px, $shine-color 70px, $base-color 100px);
+background-size: 300px;
+}
+
+
 

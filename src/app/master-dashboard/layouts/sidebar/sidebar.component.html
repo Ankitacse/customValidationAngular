@@ -1,9 +1,9 @@
-<div class="text-center menu-icon" ><a matRipple href="javascript:void(0)" (click)="menuToggle()"><img  alt="" src="assets/images/menu-icon.png"></a></div>
-<ul>        
+<div class="menu-icon"><a href="javascript:void(0)" (click)="menuToggle()"><img alt="" src="assets/images/menu-icon.png"></a></div>
+<ul class="full-menu">        
    <li *ngFor="let item of menuItems">
         <a matRipple routerLinkActive="active" [routerLink]="item.routerLink">
         <i class="dashboard-icon"><img alt="" src="assets/images/{{item.icon}}"></i>
-        <span *ngIf="isMenuOpened">{{item.title}}</span>      
+        <span [ngClass]="{'abc': isShowTitle}">{{item.title}}</span>      
         </a>
     </li>
     

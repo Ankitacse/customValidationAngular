@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   isMenuOpened = false;
+  isShowTitle = false;
   menuItems = [
     { title: 'Dashboard', icon: 'dashboard-icon.png', routerLink: '/app/dashboard' },
     { title: 'Customer Management', icon: 'customer-mg-icon.png', routerLink: '/app/customers' },
@@ -23,6 +24,14 @@ export class SidebarComponent implements OnInit {
 
   menuToggle() {
     this.isMenuOpened = !this.isMenuOpened;
+    if( this.isShowTitle ) {
+      this.isShowTitle = false;
+    }else{
+      setTimeout(() => {
+        this.isShowTitle = true;
+      }, 400);
+    }
+
   }
 
 }
