@@ -10,7 +10,8 @@
                         <input type="text" matInput formControlName="email">
                         <mat-icon matSuffix>person</mat-icon>
                     </mat-form-field>
-                    <div *ngIf="email.touched && email.invalid">
+
+                    <div class="error-sms" *ngIf="email.touched && email.invalid">
                         <div *ngFor="let validation of loginValidationMessages.email">
                             <div *ngIf="email.hasError(validation.type) && (email.errors)">
                                 {{validation.message}}</div>
@@ -24,7 +25,7 @@
                         <mat-icon matSuffix>visibility</mat-icon>
                     </mat-form-field>
 
-                    <div *ngIf="password.touched && password.invalid">
+                    <div class="error-sms" *ngIf="password.touched && password.invalid">
                         <div *ngFor="let validation of loginValidationMessages.password">
                             <div *ngIf="password.hasError(validation.type) && (password.errors)"
                                 class="position-absolute">
