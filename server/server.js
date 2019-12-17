@@ -1,31 +1,54 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongo = require('mongoose');
+const express = require('express')
+const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 const path = require('path')
-const port =  8000;
-const app = express();
 
+const app = express()
+const config = require('./config')
+
+/**
+ * mongo DB connection
+ */
+mongoose.Promise = global.Promise
+mongoose.connect(config.DATABASE_URL, config.mongoClientOptions)
+
+/**
+ * mongo db connection on success
+ */
+mongoose.connection.on('connected', () => {
+  console.log('Connected to database ' + config.DATABASE_URL)
+})
+
+/**
+ * mongo db on connection Error
+ */
+mongoose.connection.on('error', (err) => {
+  console.log('Database error: ' + err)
+})
+
+/**
+ * App uses resource
+ */
 app.use(express.static(path.join(__dirname, '../dist/jewelrypro')));
 app.use(bodyParser.json({
   limit: '50mb'
 }));
 
-/* mongo.Promise = global.Promise;
-mongo.connect(env.db, {
-  useCreateIndex: true,
-  useNewUrlParser: true,
-  useFindAndModify: false
-}, function (err) {
-  if (err) {
-    console.log('connection error. ' + err);
-  }
-  console.log('mongodb connected');
-}); */
+/**
+ * import route module
+ */
+require('./user')(app)
 
+/**
+ * run front end of jewelrypro
+ */
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist/jewelrypro', 'index.html'));
 });
 
-app.listen(port, function () {
-  console.log('server running on localhost:' + port);
+/**
+ * listen port 
+ */
+app.listen(config.PORT, function () {
+  console.log('server running on localhost:' + config.PORT);
 });

@@ -3,7 +3,7 @@
         <div class="modified-col">
             <h2>Last Modified</h2>
             <ul [@listAnimation]="lastModification.length">
-                <li *ngFor='let item of lastModification' >
+                <li *ngFor='let item of lastModification'>
                     <mat-card matRipple>
                         <h3 [ngClass]="item.icon">{{item.title}}
                             <span>Management</span>
@@ -48,7 +48,7 @@
             </div>
             <div [@listAnimation]="items.length">
                 <div *ngFor='let item of items' class="table-rept">
-                    <mat-card >
+                    <mat-card>
                         <div class="col-1">
                             <mat-checkbox></mat-checkbox>
                         </div>
@@ -82,21 +82,23 @@
                             </ul>
                         </div>
                         <div class="col-4">
-                            <a matRipple [matMenuTriggerFor]="menu" href="JavaScript:void(0)">...</a>
+                            <a matRipple [matMenuTriggerFor]="menu" href="JavaScript:void(0)">
+                                <mat-icon>more_horiz</mat-icon>
+                            </a>
                             <mat-menu #menu="matMenu">
                                 <button mat-menu-item>
-                                  <mat-icon>visibility</mat-icon>
-                                  <span>View</span>
+                                    <mat-icon>visibility</mat-icon>
+                                    <span>View</span>
                                 </button>
                                 <button mat-menu-item>
-                                  <mat-icon>edit</mat-icon>
-                                  <span>Edit</span>
+                                    <mat-icon>edit</mat-icon>
+                                    <span>Edit</span>
                                 </button>
                                 <button mat-menu-item>
-                                  <mat-icon>delete_forever</mat-icon>
-                                  <span>Remove</span>
+                                    <mat-icon>delete_forever</mat-icon>
+                                    <span>Remove</span>
                                 </button>
-                              </mat-menu>
+                            </mat-menu>
                         </div>
                     </mat-card>
                 </div>
