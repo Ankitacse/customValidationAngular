@@ -94,7 +94,11 @@
     margin-top:0px;
     @include text-center;
     button{
-        width: 300px; 
+        width: 300px;        
+        background:$btngrad;
+        padding: 17px 70px;
+        margin:10px 0 15px;
+        margin-bottom: 40px;
         span{
             cursor: pointer;
             display: inline-block;

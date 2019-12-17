@@ -1,19 +1,88 @@
+@import "./src/assets/scss/mixin.scss";
+@import "./src/assets/scss/variable.scss";
 .body-wrap{
     display: flex;
     max-width: 100%;
     margin-right: 40px;
     justify-content: space-between;    
 }
-
 .repairs-table{        
-    width: 100%;
-    h2{
-        font-size: 22px;
-        color:#7e7e7e;
-        font-weight: 500;
-        letter-spacing: 1px;
-        margin-bottom: 15px;
-    }
+    width: 100%;    
+    .search-row{
+        display: flex;
+        justify-content: space-between;
+        border-bottom: solid 1px #fff;
+        padding-bottom: 20px;
+        position: relative;
+        &:before{
+            position: absolute;
+            content:"";
+            border-bottom: solid 1px #ccc;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }        
+        .search-col{
+            justify-content: flex-end;
+            ul{
+                list-style: none;
+                li{
+                    display: inline-block;
+                    margin-right: 10px;
+                    position: relative;
+                    .createbt{
+                        background-color:#3baffa;
+                        font-size: 0.9rem;
+                        padding:12px 30px;
+                        border-radius: 20px;
+                        &:hover{
+                            background-color:#0476bf;
+                        }
+                    }
+                    .secondary{
+                        background-color:#ffa238;
+                        font-size: 0.9rem;
+                        padding:12px 30px;
+                        border-radius: 20px;
+                        &:hover{
+                            background-color:#0476bf;
+                        }
+                    }
+                    .s-box{
+                        display: inline-block;                        
+                    }
+                    .form-control{
+                        border: solid 1px $silver;
+                        height:45px;
+                        border-radius:30px;
+                        padding: 0 20px;
+                        width: 200px;
+                        @include transition-5s;
+                        &:focus{
+                            width: 350px;  
+                        }
+                    }
+                    .material-icons{
+                        position: absolute;
+                        top: 10px;
+                        right: 15px;
+                        z-index: 9;
+                        color:$gray;                        
+                    }
+
+                }
+            }
+            
+        }
+        h2{
+            font-size: 22px;
+            color:#7e7e7e;
+            font-weight: 500;
+            letter-spacing: 1px;            
+            line-height: 45px;
+        }
+    }  
+      
     .table-top{
         display:flex;
         flex-direction:row;           
@@ -27,14 +96,17 @@
             font-size: 15px;
             color: #a3b3bd;
         .col-1{
-            width: 5%;                
+            width: 5%;
         }
         .col-2{
-            width: 35%;               
+            width: 10%;               
         }
         .col-3{
-            width: 25%;               
-        }  
+            width: 20%;               
+        } 
+        .col-4{
+            width: 13%;               
+        } 
 
         }
         
@@ -63,8 +135,7 @@
                 color: #a1a1a1;                                     
             }
             a{
-                color: #a1a1a1;
-                font-size:30px;
+                color: #a1a1a1;                
                 text-decoration: none;
                 line-height: 6px;
             }                
@@ -88,30 +159,29 @@
             width: 5%;
         }            
         .col-2{
-            width: 35%;
+            width: 10%;
         }
         .col-3{
-           width: 20%;
-           margin-top: -4px;
-           ul{
-            display: flex;
-            li{
-                display:inline-block;
-                margin-right: -5px;
-                .round-img{
-                    width: 25px;
-                    height:25px;                                
-                    img{
-                        width: 100%;
-                        border-radius:100px;
-                        border: solid 2px #fff;                                
-                    }
-                }
-            }
-        }               
+           width: 20%;                                  
         }
         .col-4{
-            width:5%;
+            width:13%;
+            ul{
+                display: flex;
+                li{
+                    display:inline-block;
+                    margin-right: -5px;
+                    .round-img{
+                        width: 25px;
+                        height:25px;                                
+                        img{
+                            width: 100%;
+                            border-radius:100px;
+                            border: solid 2px #fff;                                
+                        }
+                    }
+                }
+            } 
         }
         }            
         }
