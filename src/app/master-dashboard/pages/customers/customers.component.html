@@ -1,14 +1,40 @@
 <div class="body-wrap">
-    <div class="repairs-table" >
-        <h2>Open Repairs Task</h2>
+    <div class="repairs-table">
+        <div class="search-row">
+            <h2>Open Repairs Task</h2>
+            <div class="search-col">
+                <ul>
+                    <li class="s-box">
+                        <form>
+                            <i class="material-icons">search</i>
+                            <input type="text" placeholder="Search..." class="form-control">
+                        </form>
+                    </li>
+                    <li>
+                        <button class="btn secondary btn-loder" type="button">Create</button>
+                    </li>
+                    <li>
+                        <button class="btn createbt" type="button"> Export</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
         <div class="table-top">
             <mat-card>
                 <div class="col-1">
                     <mat-checkbox></mat-checkbox>
                 </div>
-                <div class="col-2">Name</div>
-                <div class="col-2"> Modified Date</div>
-                <div class="col-3">Members</div>
+                <div class="col-2">No</div>
+                <div class="col-3">Customer Name</div>
+                <div class="col-3">Email Address</div>
+                <div class="col-4">Mobile No</div>
+                <div class="col-4">Date</div>
+                <div class="col-4">Lifetime Value</div>
+                <div class="col-4">Members</div>
+                <div class="col-1">Actions</div>
             </mat-card>
         </div>
 
@@ -18,16 +44,28 @@
                     <div class="col-1">
                         <mat-checkbox></mat-checkbox>
                     </div>
-                    <div class="col-2">
+                    <div class="col-2">CUS-005293</div>
+
+                    <div class="col-3">
                         <svg width="35" height="35" viewBox="0 0 20 20">
                             <path d="M10 5L8 3H3c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1h-5z" />
                         </svg> Damon Zappariello
                     </div>
-        
-                    <div class="col-2">
-                        <dt>22, 2019, 3:40PM</dt>
-                    </div>
+
                     <div class="col-3">
+                        <a href="mailto:chrissindoni@gmail.com">chrissindoni@gmail.com</a>
+                    </div>
+                    <div class="col-4">
+                        (609) 287-3427
+                    </div>
+                    <div class="col-4">
+                        <dt>13.12.2019</dt>
+                    </div>
+                    <div class="col-4">
+                        $0.00
+                    </div>
+
+                    <div class="col-4">
                         <ul>
                             <li>
                                 <div class="round-img">
@@ -46,14 +84,11 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-4">
+                    <div class="col-1">
                         <a href="JavaScript:void(0)">...</a>
                     </div>
                 </mat-card>
             </div>
         </div>
-    </div>  
+    </div>
 </div>
-
-
-

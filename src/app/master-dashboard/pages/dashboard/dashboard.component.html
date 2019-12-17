@@ -82,7 +82,22 @@
                             </ul>
                         </div>
                         <div class="col-4">
-                            <a href="JavaScript:void(0)">...</a>
+                            <a matRipple [matMenuTriggerFor]="menu" href="JavaScript:void(0)">...</a>
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item>
+                                  <mat-icon>visibility</mat-icon>
+                                  <span>View</span>
+                                </button>
+                                <button mat-menu-item>
+                                  <mat-icon>edit</mat-icon>
+                                  <span>Edit</span>
+                                </button>
+                                <button mat-menu-item>
+                                  <mat-icon>delete_forever</mat-icon>
+                                  <span>Remove</span>
+                                </button>
+                              </mat-menu>
+
                         </div>
                     </mat-card>
                 </div>
