@@ -1,11 +1,14 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 <div class="dashboard-container">
     <div class="main-wrap">
         <div class="main-sidebar " [ngClass]="{'collapse-menu' : sideNav.isMenuOpened}">
             <app-sidebar></app-sidebar>
         </div>
+
         <div class="main-outer" [ngClass]="{'collapse-outer' : sideNav.isMenuOpened}">
+
             <div class="header-toprow">
-                <app-header></app-header>
+                <app-header [heading]="outlet.activatedRouteData.animation"></app-header>
             </div>
 
             <div [@fadeIn]="prepareRoute(outlet)" class="middle-row">
@@ -13,7 +16,7 @@
             </div>
 
             <div class="footer-bottomrow">
-                <app-footer></app-footer>                
+                <app-footer></app-footer>
             </div>
         </div>
     </div>

@@ -11,15 +11,14 @@
                         </form>
                     </li>
                     <li>
-                        <button class="btn secondary btn-loder" type="button">Create</button>
+                        <button matRipple class="btn secondary btn-loder" type="button">Create</button>
                     </li>
                     <li>
-                        <button class="btn createbt" type="button"> Export</button>
+                        <button matRipple class="btn createbt" type="button"> Export</button>
                     </li>
                 </ul>
             </div>
         </div>
-
 
 
         <div class="table-top">
@@ -48,7 +47,8 @@
 
                     <div class="col-3">
                         <svg width="35" height="35" viewBox="0 0 20 20">
-                            <path d="M10 5L8 3H3c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1h-5z" />
+                            <path
+                                d="M10 5L8 3H3c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1h-5z" />
                         </svg> Damon Zappariello
                     </div>
 
@@ -85,7 +85,23 @@
                         </ul>
                     </div>
                     <div class="col-1">
-                        <a href="JavaScript:void(0)">...</a>
+                        <a matRipple [matMenuTriggerFor]="menu" href="JavaScript:void(0)">
+                            <mat-icon>more_horiz</mat-icon>
+                        </a>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item>
+                                <mat-icon>visibility</mat-icon>
+                                <span>View</span>
+                            </button>
+                            <button mat-menu-item>
+                                <mat-icon>edit</mat-icon>
+                                <span>Edit</span>
+                            </button>
+                            <button mat-menu-item>
+                                <mat-icon>delete_forever</mat-icon>
+                                <span>Remove</span>
+                            </button>
+                        </mat-menu>
                     </div>
                 </mat-card>
             </div>

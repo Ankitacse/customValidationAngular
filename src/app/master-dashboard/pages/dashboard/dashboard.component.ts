@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { listAnimation, slideInUp } from 'src/app/core/animations/trigger';
 
+/**
+ * modification constant
+ */
 const modificationArray = [
   {title: 'Customer', icon: 'customer-mg-icon', count: 1789},
   {title: 'Appraisal', icon: 'appraisal-mg-icon', count: 1789},
   {title: 'Repair', icon: 'repair-mg-icon', count: 1789}
 ];
 
+/**
+ * overview constant
+ */
 const overview = [
   {icon : 'small-icon1', count: '10,555', title: 'Total Customers', class: ''},
   {icon : 'small-icon2', count: '10,555', title: 'Total Appraisals', class: 'crd-icon-orange-bg'},
