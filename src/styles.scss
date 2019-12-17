@@ -69,6 +69,15 @@ animation: shine-lines $animation-duration infinite linear;
     color: #8687ba;
 }
 
+.mat-form-field-wrapper{
+    padding-bottom: 0;   
+}
+.error-sms{
+    color: red;
+    font-size: .8rem;
+    text-align: left;
+}
+
 @keyframes shine-lines{   
 0%{
   background-position: -100px

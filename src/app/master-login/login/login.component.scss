@@ -17,6 +17,14 @@
 .login-form{              
     padding:10px 20px;
     border-radius:$radius-5;
+    .login-form-group{
+        margin-bottom: 15px;
+    }
+    .error-sms{
+        color: red;
+        font-size: .8rem;
+        text-align: left;
+    }
     h2{
     font-size: $font20;
     margin-bottom: 25px;
