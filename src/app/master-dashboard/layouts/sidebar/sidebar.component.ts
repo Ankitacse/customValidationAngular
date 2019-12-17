@@ -24,9 +24,9 @@ export class SidebarComponent implements OnInit {
 
   menuToggle() {
     this.isMenuOpened = !this.isMenuOpened;
-    if( this.isShowTitle ) {
+    if (this.isShowTitle) {
       this.isShowTitle = false;
-    }else{
+    } else {
       setTimeout(() => {
         this.isShowTitle = true;
       }, 400);

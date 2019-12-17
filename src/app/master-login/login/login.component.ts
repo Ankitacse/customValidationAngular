@@ -2,6 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
+const loginFormMessage = {
+  email: [
+    { type: 'required', message: 'Email is required' },
+    { type: 'email', message: 'Please Enter a valid email' }
+  ],
+  password: [
+    { type: 'required', message: 'Password is required' }
+  ]
+};
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -26,15 +35,7 @@ export class LoginComponent implements OnInit {
   /**
    * @description Login Validation Message
    */
-  loginValidationMessages = {
-    email: [
-      { type: 'required', message: 'Email is required' },
-      { type: 'email', message: 'Please Enter a valid email' }
-    ],
-    password: [
-      { type: 'required', message: 'Password is required' }
-    ]
-  };
+  loginValidationMessages = loginFormMessage;
 
   constructor(private router: Router) { }
 
@@ -46,8 +47,6 @@ export class LoginComponent implements OnInit {
    */
   onSubmit() {
     console.log(this.loginForm.value);
-
-    
     this.router.navigate(['/app']);
   }
 }

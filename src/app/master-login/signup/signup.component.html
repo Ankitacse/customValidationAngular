@@ -10,6 +10,13 @@
                             <input type="text" matInput formControlName="jobTitle">
                             <mat-icon matSuffix>work</mat-icon>
                         </mat-form-field>
+
+                        <div class="error-sms" *ngIf="jobTitle.touched && jobTitle.invalid">
+                            <div *ngFor="let validation of signUpFormValidationMessages.jobTitle">
+                                <div *ngIf="jobTitle.hasError(validation.type) && (jobTitle.errors)">
+                                    {{validation.message}}</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="login-form-group">
                         <mat-form-field appearance="outline">
@@ -17,6 +24,13 @@
                             <input type="text" matInput formControlName="email">
                             <mat-icon matSuffix>email</mat-icon>
                         </mat-form-field>
+
+                        <div class="error-sms" *ngIf="email.touched && email.invalid">
+                            <div *ngFor="let validation of signUpFormValidationMessages.email">
+                                <div *ngIf="email.hasError(validation.type) && (email.errors)">
+                                    {{validation.message}}</div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="login-form-group">
@@ -25,13 +39,20 @@
                             <input type="text" matInput formControlName="userName">
                             <mat-icon matSuffix>person</mat-icon>
                         </mat-form-field>
+
+                        <div class="error-sms" *ngIf="userName.touched && userName.invalid">
+                            <div *ngFor="let validation of signUpFormValidationMessages.userName">
+                                <div *ngIf="userName.hasError(validation.type) && (userName.errors)">
+                                    {{validation.message}}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="regi-col-3">
                     <div class="upload-img">
                         <img alt="" src="assets/images/user.svg" />
                     </div>
-                    <button class="btn primary">
+                    <button type="button" class="btn primary">
                         <span>Upload Photo</span>
                     </button>
                 </div>
@@ -44,6 +65,13 @@
                             <input type="text" matInput formControlName="firstName">
                             <mat-icon matSuffix>supervised_user_circle</mat-icon>
                         </mat-form-field>
+
+                        <div class="error-sms" *ngIf="firstName.touched && firstName.invalid">
+                            <div *ngFor="let validation of signUpFormValidationMessages.firstName">
+                                <div *ngIf="firstName.hasError(validation.type) && (firstName.errors)">
+                                    {{validation.message}}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="regi-col-5">
@@ -53,6 +81,13 @@
                             <input type="text" matInput formControlName="lastName">
                             <mat-icon matSuffix>recent_actors</mat-icon>
                         </mat-form-field>
+
+                        <div class="error-sms" *ngIf="lastName.touched && lastName.invalid">
+                            <div *ngFor="let validation of signUpFormValidationMessages.lastName">
+                                <div *ngIf="lastName.hasError(validation.type) && (lastName.errors)">
+                                    {{validation.message}}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -64,6 +99,13 @@
                             <input type="password" matInput formControlName="password">
                             <mat-icon matSuffix>remove_red_eye</mat-icon>
                         </mat-form-field>
+
+                        <div class="error-sms" *ngIf="password.touched && password.invalid">
+                            <div *ngFor="let validation of signUpFormValidationMessages.password">
+                                <div *ngIf="password.hasError(validation.type) && (password.errors)">
+                                    {{validation.message}}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="regi-col-5">
@@ -73,6 +115,13 @@
                             <input type="password" matInput formControlName="confirmPassword">
                             <mat-icon matSuffix>lock</mat-icon>
                         </mat-form-field>
+
+                        <div class="error-sms" *ngIf="confirmPassword.touched && confirmPassword.invalid">
+                            <div *ngFor="let validation of signUpFormValidationMessages.confirmPassword">
+                                <div *ngIf="confirmPassword.hasError(validation.type) && (confirmPassword.errors)">
+                                    {{validation.message}}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,6 +133,13 @@
                             <input type="text" matInput formControlName="recoveryPIN">
                             <mat-icon matSuffix>rotate_right</mat-icon>
                         </mat-form-field>
+
+                        <div class="error-sms" *ngIf="recoveryPIN.touched && recoveryPIN.invalid">
+                            <div *ngFor="let validation of signUpFormValidationMessages.recoveryPIN">
+                                <div *ngIf="recoveryPIN.hasError(validation.type) && (recoveryPIN.errors)">
+                                    {{validation.message}}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="regi-col-5">
@@ -93,12 +149,19 @@
                             <input type="text" matInput formControlName="confirmRecoveryPIN">
                             <mat-icon matSuffix>timer</mat-icon>
                         </mat-form-field>
+
+                        <div class="error-sms" *ngIf="confirmRecoveryPIN.touched && confirmRecoveryPIN.invalid">
+                            <div *ngFor="let validation of signUpFormValidationMessages.confirmRecoveryPIN">
+                                <div *ngIf="confirmRecoveryPIN.hasError(validation.type) && (confirmRecoveryPIN.errors)">
+                                    {{validation.message}}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="login-bottom-action">
-                <button type="submit" class="btn primary">
+                <button [disabled]="signUpForm.invalid" type="submit" class="btn primary">
                     <span>Submit</span>
                 </button>
             </div>
