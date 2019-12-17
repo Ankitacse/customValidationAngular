@@ -17,6 +17,10 @@ export class MasterLoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * @description return router animation state
+   * @param outlet router-outlet referance
+   */
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }

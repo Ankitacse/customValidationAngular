@@ -8,7 +8,7 @@
         <div class="main-outer" [ngClass]="{'collapse-outer' : sideNav.isMenuOpened}">
 
             <div class="header-toprow">
-                <app-header></app-header>
+                <app-header [heading]="outlet.activatedRouteData.animation"></app-header>
             </div>
 
             <div [@fadeIn]="prepareRoute(outlet)" class="middle-row">

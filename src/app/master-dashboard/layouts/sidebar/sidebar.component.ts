@@ -14,7 +14,7 @@ export class SidebarComponent implements OnInit {
     { title: 'Appraisal Management', icon: 'appisal-mg-icon.png', routerLink: 'app/appraisal-management' },
     { title: 'Repair Management', icon: 'repair-mg-icon.png', routerLink: '/app/repair-management' },
     { title: 'Setting', icon: 'setting-icon.png', routerLink: '/app/setting' },
-    { title: 'Logout', icon: 'logout-icon.png', routerLink: '/app/login' }
+    { title: 'Logout', icon: 'logout-icon.png', routerLink: '/user/login' }
   ];
 
   constructor() { }

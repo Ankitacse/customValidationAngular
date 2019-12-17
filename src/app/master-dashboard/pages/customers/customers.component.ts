@@ -7,7 +7,7 @@ import { listAnimation } from 'src/app/core/animations/trigger';
   styleUrls: ['./customers.component.scss'],
   animations: [listAnimation]
 })
-export class CustomersComponent implements OnInit, AfterViewInit {
+export class CustomersComponent implements OnInit {
   items = [];
   constructor() { }
 
@@ -16,9 +16,4 @@ export class CustomersComponent implements OnInit, AfterViewInit {
       this.items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     }, 10);
   }
-
-  ngAfterViewInit() {
-
-  }
-
 }

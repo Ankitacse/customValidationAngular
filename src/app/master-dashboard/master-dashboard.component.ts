@@ -29,6 +29,10 @@ export class MasterDashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * @description return router animation state
+   * @param outlet router-outlet referance
+   */
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
@@ -37,7 +41,7 @@ export class MasterDashboardComponent implements OnInit {
    * @description navigator for route process
    * @param event RouterEvent
    */
-  navigationInterceptor(event: RouterEvent) {
+  private navigationInterceptor(event: RouterEvent) {
     if (event instanceof NavigationStart) {
       this.loading = true;
     }
