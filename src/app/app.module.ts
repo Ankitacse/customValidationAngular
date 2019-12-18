@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialsModule } from './core/materials/materials.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './core/services/http-interceptor.service';
 import { GlobalErrorsService } from './core/services/global-errors.service';
 
@@ -16,7 +16,8 @@ import { GlobalErrorsService } from './core/services/global-errors.service';
     BrowserModule,
     AppRoutingModule,
     MaterialsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     { provide: ErrorHandler, useClass: GlobalErrorsService },

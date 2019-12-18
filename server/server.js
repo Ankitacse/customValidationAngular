@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const path = require('path')
+var cors = require('cors')
 
 const app = express()
 const config = require('./config')
@@ -29,10 +30,11 @@ mongoose.connection.on('error', (err) => {
 /**
  * App uses resource
  */
-app.use(express.static(path.join(__dirname, '../dist/jewelrypro')));
+app.use(express.static(path.join(__dirname, '../dist/jewelrypro')))
 app.use(bodyParser.json({
   limit: '50mb'
 }));
+app.use(cors())
 
 /**
  * @description use bodyparser for encode url data and extend data limit
@@ -45,7 +47,7 @@ app.use(bodyParser.urlencoded({
 /**
  * @description folder permission
  */
-app.use(express.static(path.join(__dirname, 'uploads')));
+app.use(express.static(path.join(__dirname, 'uploads')))
 
 
 /**
@@ -57,12 +59,12 @@ require('./controller/user')(app)
  * run front end of jewelrypro
  */
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/jewelrypro', 'index.html'));
+  res.sendFile(path.join(__dirname, '../dist/jewelrypro', 'index.html'))
 });
 
 /**
  * listen port 
  */
 app.listen(config.PORT, function () {
-  console.log('server running on localhost:' + config.PORT);
+  console.log('server running on localhost:' + config.PORT)
 });

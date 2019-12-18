@@ -7,13 +7,13 @@
                 <div class="login-form-group">
                     <mat-form-field appearance="outline">
                         <mat-label>Username</mat-label>
-                        <input type="text" matInput formControlName="email">
+                        <input type="text" matInput formControlName="userName">
                         <mat-icon matSuffix>person</mat-icon>
                     </mat-form-field>
 
-                    <div class="error-sms" *ngIf="email.touched && email.invalid">
-                        <div *ngFor="let validation of loginValidationMessages.email">
-                            <div *ngIf="email.hasError(validation.type) && (email.errors)">
+                    <div class="error-sms" *ngIf="userName.touched && userName.invalid">
+                        <div *ngFor="let validation of loginValidationMessages.userName">
+                            <div *ngIf="userName.hasError(validation.type) && (userName.errors)">
                                 {{validation.message}}</div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                     </p>
                 </span>
                 <div class="login-bottom-action">
-                    <button [disabled]="loginForm.invalid" type="submit" class="btn primary">
+                    <button [disabled]="loginForm.invalid || loginLoader" type="submit" class="btn primary">
                         <span>Login</span>
                     </button>
                 </div>
