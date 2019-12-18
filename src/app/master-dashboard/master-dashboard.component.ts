@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { fadeIn } from '../core/animations/trigger';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, NavigationError } from '@angular/router';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
 import {
   Router,
@@ -47,6 +47,10 @@ export class MasterDashboardComponent implements OnInit {
     }
 
     if (event instanceof NavigationEnd) {
+      this.loading = false;
+    }
+
+    if (event instanceof NavigationError) {
       this.loading = false;
     }
   }
