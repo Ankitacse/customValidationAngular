@@ -1,18 +1,16 @@
 const express = require('express')
 const router = express.Router()
-const jwtAuth = require('../config/jwt-auth')
-const config = require('../config')
+const jwtAuth = require('../../config/jwt-auth')
+const config = require('../../config')
 const jwt = require('jsonwebtoken')
 const User = require('./model')
+const imageUpload = require('../../function/imageUpload')
 
-router.get('/', (req, res) => {
-  res.json({msg: 'working'});
-});
 
 /**
  * Cteate new user
  */
-router.post('/', jwtAuth, (req, res, next) => {
+router.post('/', imageUpload.singleImageUpload.single('image'), (req, res, next) => {
   let newUser = new User(req.body)
 
   User.createUser(newUser, (err, user) => {
@@ -30,11 +28,10 @@ router.post('/', jwtAuth, (req, res, next) => {
  * User login
  */
 router.post('/login', (req, res, next) => {
-
-  const email = req.body.email
+  const userName = req.body.userName
   const password = req.body.password
 
-  User.getUserByEmail(email, (err, user) => {
+  User.getUserByuserName(userName, (err, user) => {
     if (err) {
       return res.status(400).json({
         msg: err.toString()

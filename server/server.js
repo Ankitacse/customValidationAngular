@@ -35,9 +35,23 @@ app.use(bodyParser.json({
 }));
 
 /**
+ * @description use bodyparser for encode url data and extend data limit
+ */
+app.use(bodyParser.urlencoded({
+  extended: true,
+  limit: '150mb'
+}));
+
+/**
+ * @description folder permission
+ */
+app.use(express.static(path.join(__dirname, 'uploads')));
+
+
+/**
  * import route module
  */
-require('./user')(app)
+require('./controller/user')(app)
 
 /**
  * run front end of jewelrypro
