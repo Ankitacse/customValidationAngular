@@ -1,7 +1,7 @@
 const users = require('./route')
 
 function initUser(app) {
-  app.use('/users', users)
+  app.use('/api/users', users)
 }
 
 module.exports = initUser
