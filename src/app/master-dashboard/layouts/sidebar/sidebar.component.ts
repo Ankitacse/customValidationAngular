@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,11 +14,10 @@ export class SidebarComponent implements OnInit {
     { title: 'Customer Management', icon: 'customer-mg-icon.png', routerLink: '/app/customers' },
     { title: 'Appraisal Management', icon: 'appisal-mg-icon.png', routerLink: 'app/appraisal-management' },
     { title: 'Repair Management', icon: 'repair-mg-icon.png', routerLink: '/app/repair-management' },
-    { title: 'Setting', icon: 'setting-icon.png', routerLink: '/app/setting' },
-    { title: 'Logout', icon: 'logout-icon.png', routerLink: '/user/login' }
+    { title: 'Setting', icon: 'setting-icon.png', routerLink: '/app/setting' }
   ];
 
-  constructor() { }
+  constructor(private authServices: AuthService) { }
 
   ngOnInit() {
   }
@@ -31,7 +31,10 @@ export class SidebarComponent implements OnInit {
         this.isShowTitle = true;
       }, 400);
     }
+  }
 
+  logout() {
+    this.authServices.expireLoginSession();
   }
 
 }

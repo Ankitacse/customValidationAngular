@@ -152,7 +152,8 @@
 
                         <div class="error-sms" *ngIf="confirmRecoveryPIN.touched && confirmRecoveryPIN.invalid">
                             <div *ngFor="let validation of signUpFormValidationMessages.confirmRecoveryPIN">
-                                <div *ngIf="confirmRecoveryPIN.hasError(validation.type) && (confirmRecoveryPIN.errors)">
+                                <div
+                                    *ngIf="confirmRecoveryPIN.hasError(validation.type) && (confirmRecoveryPIN.errors)">
                                     {{validation.message}}</div>
                             </div>
                         </div>

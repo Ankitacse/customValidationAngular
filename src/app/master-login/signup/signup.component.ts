@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatchPassword } from 'src/app/core/helpers/confirm.validator';
 
 const formValidationMessages = {
   jobTitle: [
@@ -22,7 +23,8 @@ const formValidationMessages = {
     { type: 'required', message: 'Password is required' }
   ],
   confirmPassword: [
-    { type: 'required', message: 'Confirm Password is required' }
+    { type: 'required', message: 'Confirm Password is required' },
+    { type: 'matchPassword', message: 'Confirm password not matched'}
   ],
   recoveryPIN: [
     { type: 'required', message: 'Recovery PIN is required' }
@@ -31,6 +33,8 @@ const formValidationMessages = {
     { type: 'required', message: 'Confirm Recovery PIN is required' }
   ]
 };
+
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -48,10 +52,10 @@ export class SignupComponent implements OnInit {
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
-    confirmPassword: new FormControl('', Validators.required),
+    confirmPassword: new FormControl('', [Validators.required]),
     recoveryPIN: new FormControl('', Validators.required),
     confirmRecoveryPIN: new FormControl('', Validators.required)
-  });
+  }, { validators: MatchPassword('password',  'confirmPassword') });
 
   /**
    * @description getter for FormControl

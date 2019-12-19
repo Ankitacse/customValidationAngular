@@ -4,8 +4,6 @@ const Jimp = require('jimp')
 
 var constImageUrl = 'uploads/images/profile/'
 
-
-
 /**
  * @description Storage setup for single image upload
  */
