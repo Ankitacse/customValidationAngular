@@ -62,7 +62,12 @@ export class SignupComponent implements OnInit {
     recoveryPIN: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(5)]),
     confirmRecoveryPIN: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(5)])
   },
-  { validators: [MatchValidator('password', 'confirmPassword'), MatchValidator('recoveryPIN', 'confirmRecoveryPIN')] }
+    {
+      validators: [
+        MatchValidator('password', 'confirmPassword'),
+        MatchValidator('recoveryPIN', 'confirmRecoveryPIN')
+      ]
+    }
   );
 
   /**
