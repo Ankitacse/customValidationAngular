@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
 const formValidationMessages = {
   jobTitle: [
     { type: 'required', message: 'Job title is required' }
@@ -22,7 +21,7 @@ const formValidationMessages = {
     { type: 'required', message: 'Password is required' }
   ],
   confirmPassword: [
-    { type: 'required', message: 'Confirm Password is required' }
+    { type: 'required', message: 'Confirm Password is required' },
   ],
   recoveryPIN: [
     { type: 'required', message: 'Recovery PIN is required' }
@@ -37,6 +36,7 @@ const formValidationMessages = {
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+  is_visible = true;
 
   /**
    * @description Signup Form
@@ -49,9 +49,11 @@ export class SignupComponent implements OnInit {
     lastName: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
     confirmPassword: new FormControl('', Validators.required),
-    recoveryPIN: new FormControl('', Validators.required),
-    confirmRecoveryPIN: new FormControl('', Validators.required)
-  });
+    recoveryPIN: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    confirmRecoveryPIN: new FormControl('', [Validators.required, Validators.maxLength(4)])
+  }
+  
+  );
 
   /**
    * @description getter for FormControl
@@ -77,4 +79,10 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() { }
+  /** 
+  * @description toggle visibility
+  */
+  isVisible() {
+    this.is_visible = !this.is_visible;
+  }
 }

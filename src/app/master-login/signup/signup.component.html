@@ -96,8 +96,9 @@
                     <div class="login-form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>Password:</mat-label>
-                            <input type="password" matInput formControlName="password">
-                            <mat-icon matSuffix>remove_red_eye</mat-icon>
+                            <input [type]="is_visible?'text':'password'" matInput formControlName="password">
+                            <mat-icon matSuffix (click)="isVisible()">{{is_visible?'visibility':'visibility_off'}}
+                            </mat-icon>
                         </mat-form-field>
 
                         <div class="error-sms" *ngIf="password.touched && password.invalid">
@@ -115,13 +116,13 @@
                             <input type="password" matInput formControlName="confirmPassword">
                             <mat-icon matSuffix>lock</mat-icon>
                         </mat-form-field>
-
+<!-- 
                         <div class="error-sms" *ngIf="confirmPassword.touched && confirmPassword.invalid">
                             <div *ngFor="let validation of signUpFormValidationMessages.confirmPassword">
                                 <div *ngIf="confirmPassword.hasError(validation.type) && (confirmPassword.errors)">
                                     {{validation.message}}</div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -152,7 +153,8 @@
 
                         <div class="error-sms" *ngIf="confirmRecoveryPIN.touched && confirmRecoveryPIN.invalid">
                             <div *ngFor="let validation of signUpFormValidationMessages.confirmRecoveryPIN">
-                                <div *ngIf="confirmRecoveryPIN.hasError(validation.type) && (confirmRecoveryPIN.errors)">
+                                <div
+                                    *ngIf="confirmRecoveryPIN.hasError(validation.type) && (confirmRecoveryPIN.errors)">
                                     {{validation.message}}</div>
                             </div>
                         </div>

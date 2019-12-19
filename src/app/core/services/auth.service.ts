@@ -15,4 +15,10 @@ export class AuthService {
       .post(`users/login`, input)
       .pipe(catchError((error: HttpErrorResponse) => throwError(error)));
   }
+
+  checkSession(): boolean {
+    localStorage.removeItem('token');
+    console.log(localStorage.getItem('token'));
+    return !!(localStorage.getItem('token'));
+  }
 }

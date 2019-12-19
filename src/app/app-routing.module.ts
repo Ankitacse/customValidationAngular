@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MasterDashboardComponent } from 'src/app/master-dashboard/master-dashboard.component';
-
+import { LoginAccessGuard } from './core/guard/login-access.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'user', pathMatch: 'full' },
@@ -11,6 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'app',
+    canActivate: [LoginAccessGuard],
     loadChildren: () => import('./master-dashboard/master-dashboard.module').then(m => m.MasterDashboardModule)
   }
 ];

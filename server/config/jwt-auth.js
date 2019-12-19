@@ -7,7 +7,7 @@ function jwtAuth(req, res, next) {
     if (!token) return res.status(401).json({ msg: "Token Expired" })
 
     try {
-        const decoded = jwt.verify(token, env.authKey)
+        const decoded = jwt.verify(token, env.SECRET_KEY)
         req.user = decoded
         next();
     } catch (error) {
