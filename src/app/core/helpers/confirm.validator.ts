@@ -1,11 +1,11 @@
 import { AbstractControl } from '@angular/forms';
 
-export function MatchPassword(firstControl: string, secoundControl: string ) {
+export function MatchValidator(firstControl: string, secoundControl: string ) {
   return (AC: AbstractControl) => {
-    const password = AC.get(firstControl).value;
-    const confirmPassword = AC.get(secoundControl).value;
-    if (password !== confirmPassword) {
-      AC.get(secoundControl).setErrors({ matchPassword: true });
+    const control1 = AC.get(firstControl).value;
+    const control2 = AC.get(secoundControl).value;
+    if (control1 !== control2) {
+      AC.get(secoundControl).setErrors({ matchValidator: true });
     }
     return null;
   };

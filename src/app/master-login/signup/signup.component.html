@@ -82,12 +82,12 @@
                             <mat-icon matSuffix>recent_actors</mat-icon>
                         </mat-form-field>
 
-                        <div class="error-sms" *ngIf="lastName.touched && lastName.invalid">
+                        <mat-error class="error-sms" *ngIf="lastName.touched && lastName.invalid">
                             <div *ngFor="let validation of signUpFormValidationMessages.lastName">
                                 <div *ngIf="lastName.hasError(validation.type) && (lastName.errors)">
                                     {{validation.message}}</div>
                             </div>
-                        </div>
+                        </mat-error>
                     </div>
                 </div>
             </div>
@@ -96,8 +96,9 @@
                     <div class="login-form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>Password:</mat-label>
-                            <input type="password" matInput formControlName="password">
-                            <mat-icon matSuffix>remove_red_eye</mat-icon>
+                            <input [type]="isEyeVisible?'text':'password'" matInput formControlName="password">
+                            <mat-icon matSuffix (click)="isVisible()">{{isEyeVisible?'visibility':'visibility_off'}}
+                            </mat-icon>
                         </mat-form-field>
 
                         <div class="error-sms" *ngIf="password.touched && password.invalid">

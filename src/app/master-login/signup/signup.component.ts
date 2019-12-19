@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatchPassword } from 'src/app/core/helpers/confirm.validator';
+import { MatchValidator } from 'src/app/core/helpers/confirm.validator';
 
 const formValidationMessages = {
   jobTitle: [
@@ -24,13 +24,18 @@ const formValidationMessages = {
   ],
   confirmPassword: [
     { type: 'required', message: 'Confirm Password is required' },
-    { type: 'matchPassword', message: 'Confirm password not matched'}
+    { type: 'matchValidator', message: 'Confirm password not matched' }
   ],
   recoveryPIN: [
-    { type: 'required', message: 'Recovery PIN is required' }
+    { type: 'required', message: 'Recovery PIN is required' },
+    { type: 'minlength', message: 'Recovery PIN minimum 4 digit' },
+    { type: 'maxlength', message: 'Recovery PIN maximum 5 digit' }
   ],
   confirmRecoveryPIN: [
-    { type: 'required', message: 'Confirm Recovery PIN is required' }
+    { type: 'required', message: 'Confirm Recovery PIN is required' },
+    { type: 'minlength', message: 'Recovery PIN minimum 4 digit' },
+    { type: 'maxlength', message: 'Recovery PIN maximum 5 digit' },
+    { type: 'matchValidator', message: 'Recovery PIN not matched' }
   ]
 };
 
@@ -41,6 +46,7 @@ const formValidationMessages = {
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+  isEyeVisible = true;
 
   /**
    * @description Signup Form
@@ -53,9 +59,11 @@ export class SignupComponent implements OnInit {
     lastName: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
     confirmPassword: new FormControl('', [Validators.required]),
-    recoveryPIN: new FormControl('', Validators.required),
-    confirmRecoveryPIN: new FormControl('', Validators.required)
-  }, { validators: MatchPassword('password',  'confirmPassword') });
+    recoveryPIN: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(5)]),
+    confirmRecoveryPIN: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(5)])
+  },
+  { validators: [MatchValidator('password', 'confirmPassword'), MatchValidator('recoveryPIN', 'confirmRecoveryPIN')] }
+  );
 
   /**
    * @description getter for FormControl
@@ -81,4 +89,11 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() { }
+
+  /**
+   * @description toggle visibility
+   */
+  isVisible() {
+    this.isEyeVisible = !this.isEyeVisible;
+  }
 }

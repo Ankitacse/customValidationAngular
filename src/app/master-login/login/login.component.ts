@@ -22,6 +22,8 @@ const loginFormMessage = {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  is_visibility = true;
+  
   loginLoader = false;
   /**
    * @description Login Form
@@ -73,5 +75,11 @@ export class LoginComponent implements OnInit {
         }
       }
     );
+  }
+  /**
+   * @description 
+   */
+  visibilityToggle(){
+    this.is_visibility= !this.is_visibility;
   }
 }
