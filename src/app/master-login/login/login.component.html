@@ -21,8 +21,8 @@
                 <div class="login-form-group">
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
-                        <input [type]="!is_visibility? 'text': 'password'" matInput formControlName="password">
-                        <button type="button" mat-icon-button (click)="visibilityToggle()" matSuffix ><mat-icon>{{!is_visibility? 'visibility': 'visibility_off'}}</mat-icon> </button>
+                        <input [type]="!isEyeVisible? 'text': 'password'" matInput formControlName="password">
+                        <button type="button" mat-icon-button (click)="visibilityToggle()" matSuffix ><mat-icon>{{!isEyeVisible? 'visibility': 'visibility_off'}}</mat-icon> </button>
                     </mat-form-field>
 
                     <div class="error-sms" *ngIf="password.touched && password.invalid">
