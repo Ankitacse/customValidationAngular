@@ -177,3 +177,12 @@ module.exports.comparePassword = function (password, hash, callback) {
     callback(null, isMatch)
   })
 }
+
+//Recovery Pin
+module.exports.recoveryPIN = function (recoveryPIN, userName, callback) {
+  User.findOne({recoveryPIN: recoveryPIN, userName: userName }, function (err, user) {
+    if (err) callback(new Error(err))
+    
+    callback(null, user)
+  })
+}

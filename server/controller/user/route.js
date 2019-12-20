@@ -71,5 +71,42 @@ router.post('/login', (req, res, next) => {
   })
 })
 
+router.post('/recovery_pin',(req,res,next)=>{
+  const userName = req.body.userName
+  const recoveryPIN = req.body.recoveryPIN
+  
+  User.getUserByuserName(userName, (err,user) =>{
+    if (err) {
+      return res.status(400).json({
+        msg: err.toString()
+      })
+    }
+    
+    if(!user){
+      return res.status(400).json({
+        msg: 'User not found'
+      })
+    }
+
+    User.recoveryPIN(recoveryPIN, user.userName, (err, users)=>{
+      if (err) {
+        return res.status(400).json({
+          msg: err.toString()
+        })
+      }
+      
+      if(users) {
+        return res.status(201).json({
+          user: user
+        })
+      } else {
+        return res.status(400).json({
+          msg: 'Wrong Recovery PIN'
+        })
+      }
+     
+    })
+  })
+})
 
 module.exports = router
