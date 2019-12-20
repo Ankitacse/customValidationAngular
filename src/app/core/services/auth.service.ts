@@ -26,4 +26,12 @@ export class AuthService {
     localStorage.removeItem('user');
     this.router.navigate(['/user']);
   }
+
+  //signup form
+  createUser(data: any): Observable<any> {
+    return this.httpClient
+      .post(`users`, data)
+      .pipe(catchError((error: HttpErrorResponse) => throwError(error)));
+  }
+
 }
