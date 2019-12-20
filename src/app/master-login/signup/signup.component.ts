@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatchValidator } from 'src/app/core/helpers/confirm.validator';
 import { signUpformValidationMessages } from 'src/app/core/constant/validation-form.constant';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { Router } from '@angular/router';
+import { mimeType } from 'src/app/core/helpers/mime-type.validator';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
   isEyeVisible = true;
   loginLoader = false;
-
+  imagePreview: any = 'assets/images/user.svg';
   /**
    * @description Signup Form
    */
@@ -22,6 +23,10 @@ export class SignupComponent implements OnInit {
     jobTitle: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     userName: new FormControl('', Validators.required),
+    image: new FormControl('', {
+      validators: [Validators.required]
+      , asyncValidators: [mimeType]
+    }),
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
@@ -61,9 +66,26 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
   /**
+   * @description:image picker
+   */
+  onImagePicked(event: Event) {
+    //image store
+    const file = (event.target as HTMLInputElement).files[0];
+    this.signUpForm.patchValue({ image: file });
+    this.signUpForm.get('image').updateValueAndValidity();
+    //image preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  /**
    * @description:to submit signup form 
    */
   onSubmit() {
+    console.log('form', this.signUpForm);
     this.authService.createUser(this.signUpForm.value).subscribe((res: any) => {
       this.notificationService.showSuccess('SignUp Successfully', '', 3000);
       this.router.navigate(['/user']);
