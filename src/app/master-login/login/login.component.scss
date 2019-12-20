@@ -1,97 +1,90 @@
 @import "./src/assets/scss/mixin.scss";
 @import "./src/assets/scss/variable.scss";
-.login-form-wrap{    
-    @include absolute-position;
-    @include position-50;
-    transform:$transform-50;
-    @include text-center;
-    max-width: 480px;    
-    img{
-        width: 60%;
-    }
-    mat-card{
-        margin-top: 40px;
-        }
-} 
-
-.login-form{              
-    padding:10px 20px;
-    border-radius:$radius-5;
-    .login-form-group{
-        margin-bottom: 15px;
-    }
-    .error-sms{
-        color: red;
-        font-size: .8rem;
-        text-align: left;
-    }
-    h2{
-    font-size: $font20;
-    margin-bottom: 25px;
-    }
-    ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
-        padding: 0.8em 0 0.8em 0;
-    }
-    ::ng-deep .mat-form-field-appearance-outline .mat-form-field-label {
-        margin-top:0;
-        top: 1.5em;
-        font-size: 14px;
-    }
-    .login-bottom-action{
-        margin-top: 20px;
-        button{
-            width: 300px;
-            background:$btngrad;
-            padding: 17px 70px;
-            margin:10px 0 15px;
-            span{
-                cursor: pointer;
-                @include display-i-b;
-                @include relative-position;
-                @include transition-5s;
-                &:after{
-                    font-family: "FontAwesome";
-                    content: '\f101';
-                    @include absolute-position;
-                    opacity: 0;
-                    top: 0;
-                    right: -20px;                    
-                    @include transition-5s;
-                }             
-            }             
-            &:hover{
-                background-image: $btngradhover;
-                span{
-                    padding-right: 25px;                    
-                }
-                ::after{
-                    opacity: 1;
-                    right: 0;
-                }
-            }
-               
-        }
-     }
-
-     .forgot-wrap{
-        color: $black; 
-        @include flex-center;
-        justify-content: space-between;
-        font-size: 13px;     
-        a{
-        color: $primary;
-        @include text-decoration-none;
-        font-size: 13px;
-        &:hover{            
-            cursor: pointer;
-            @include text-decoration;  
-          } 
-        }
-        
-    }     
-    
+.login-form-wrap {
+  @include absolute-position;
+  @include position-50;
+  transform: $transform-50;
+  @include text-center;
+  max-width: 480px;
+  img {
+    width: 60%;
+  }
+  mat-card {
+    margin-top: 40px;
+  }
 }
 
+.login-form {
+  padding: 10px 20px;
+  border-radius: $radius-5;
+  .login-form-group {
+    margin-bottom: 15px;
+  }
+  .error-sms {
+    color: red;
+    font-size: 0.8rem;
+    text-align: left;
+  }
+  h2 {
+    font-size: $font20;
+    margin-bottom: 25px;
+  }
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.8em 0 0.8em 0;
+  }
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-label {
+    margin-top: 0;
+    top: 1.5em;
+    font-size: 14px;
+  }
+  .login-bottom-action {
+    margin-top: 20px;
+    button {
+      width: 300px;
+      background: $btngrad;
+      padding: 17px 70px;
+      margin: 10px 0 15px;
+      span {
+        cursor: pointer;
+        @include display-i-b;
+        @include relative-position;
+        @include transition-5s;
+        &:after {
+          font-family: "FontAwesome";
+          content: "\f101";
+          @include absolute-position;
+          opacity: 0;
+          top: 0;
+          right: -20px;
+          @include transition-5s;
+        }
+      }
+      &:hover {
+        background-image: $btngradhover;
+        span {
+          padding-right: 25px;
+        }
+        ::after {
+          opacity: 1;
+          right: 0;
+        }
+      }
+    }
+  }
 
-
-
+  .forgot-wrap {
+    color: $black;
+    @include flex-center;
+    justify-content: space-between;
+    font-size: 13px;
+    a {
+      color: $primary;
+      @include text-decoration-none;
+      font-size: 13px;
+      &:hover {
+        cursor: pointer;
+        @include text-decoration;
+      }
+    }
+  }
+}

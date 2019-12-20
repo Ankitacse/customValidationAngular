@@ -1,10 +1,18 @@
-<div class="menu-icon"><a href="javascript:void(0)" (click)="menuToggle()"><img alt="" src="assets/images/menu-icon.png"></a></div>
-<ul class="full-menu">        
-   <li *ngFor="let item of menuItems">
+<div class="menu-icon"><a href="javascript:void(0)" (click)="menuToggle()"><img alt=""
+            src="assets/images/menu-icon.png"></a></div>
+<ul class="full-menu">
+    <li *ngFor="let item of menuItems">
         <a matRipple routerLinkActive="active" [routerLink]="item.routerLink">
-        <i class="dashboard-icon"><img alt="" src="assets/images/{{item.icon}}"></i>
-        <span [ngClass]="{'abc': isShowTitle}">{{item.title}}</span>      
+            <i class="dashboard-icon"><img alt="" src="assets/images/{{item.icon}}"></i>
+            <span [ngClass]="{'abc': isShowTitle}">{{item.title}}</span>
         </a>
     </li>
-    
+
+    <li>
+        <a matRipple routerLinkActive="active" href="javascript:void(0)" (click)="logout()">
+            <i class="dashboard-icon"><img alt="" src="assets/images/logout-icon.png"></i>
+            <span [ngClass]="{'abc': isShowTitle}">Logout</span>
+        </a>
+    </li>
+
 </ul>

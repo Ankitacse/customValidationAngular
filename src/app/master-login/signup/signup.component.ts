@@ -1,42 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatchValidator } from 'src/app/core/helpers/confirm.validator';
+import { signUpformValidationMessages } from 'src/app/core/constant/validation-form.constant';
 
-const formValidationMessages = {
-  jobTitle: [
-    { type: 'required', message: 'Job title is required' }
-  ],
-  email: [
-    { type: 'required', message: 'Email is required' },
-    { type: 'email', message: 'Please Enter a valid email' }
-  ],
-  userName: [
-    { type: 'required', message: 'Username is required' }
-  ],
-  firstName: [
-    { type: 'required', message: 'First name is required' }
-  ],
-  lastName: [
-    { type: 'required', message: 'Last name is required' }
-  ],
-  password: [
-    { type: 'required', message: 'Password is required' }
-  ],
-  confirmPassword: [
-    { type: 'required', message: 'Confirm Password is required' }
-  ],
-  recoveryPIN: [
-    { type: 'required', message: 'Recovery PIN is required' }
-  ],
-  confirmRecoveryPIN: [
-    { type: 'required', message: 'Confirm Recovery PIN is required' }
-  ]
-};
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+  isEyeVisible = true;
 
   /**
    * @description Signup Form
@@ -48,10 +21,17 @@ export class SignupComponent implements OnInit {
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
-    confirmPassword: new FormControl('', Validators.required),
-    recoveryPIN: new FormControl('', Validators.required),
-    confirmRecoveryPIN: new FormControl('', Validators.required)
-  });
+    confirmPassword: new FormControl('', [Validators.required]),
+    recoveryPIN: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(5)]),
+    confirmRecoveryPIN: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(5)])
+  },
+    {
+      validators: [
+        MatchValidator('password', 'confirmPassword'),
+        MatchValidator('recoveryPIN', 'confirmRecoveryPIN')
+      ]
+    }
+  );
 
   /**
    * @description getter for FormControl
@@ -69,7 +49,7 @@ export class SignupComponent implements OnInit {
   /**
    * @description Login Validation Message
    */
-  signUpFormValidationMessages = formValidationMessages;
+  signUpFormValidationMessages = signUpformValidationMessages;
 
   constructor() { }
 
@@ -77,4 +57,11 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() { }
+
+  /**
+   * @description toggle visibility
+   */
+  isVisible() {
+    this.isEyeVisible = !this.isEyeVisible;
+  }
 }

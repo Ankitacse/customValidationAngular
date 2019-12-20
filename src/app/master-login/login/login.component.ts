@@ -3,18 +3,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
-
-/**
- * @description validation error message og login form
- */
-const loginFormMessage = {
-  userName: [
-    { type: 'required', message: 'Email is required' }
-  ],
-  password: [
-    { type: 'required', message: 'Password is required' }
-  ]
-};
+import { loginFormValidationMessages } from 'src/app/core/constant/validation-form.constant';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +11,8 @@ const loginFormMessage = {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  isEyeVisible = true;
+
   loginLoader = false;
   /**
    * @description Login Form
@@ -40,7 +31,7 @@ export class LoginComponent implements OnInit {
   /**
    * @description Login Validation Message
    */
-  loginValidationMessages = loginFormMessage;
+  loginValidationMessages = loginFormValidationMessages;
 
   constructor(
     private router: Router,
@@ -73,5 +64,12 @@ export class LoginComponent implements OnInit {
         }
       }
     );
+  }
+
+  /**
+   * @description toggle visibility
+   */
+  isVisible() {
+    this.isEyeVisible = !this.isEyeVisible;
   }
 }
