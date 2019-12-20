@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { MatchValidator } from 'src/app/core/helpers/confirm.validator';
 import { signUpformValidationMessages } from 'src/app/core/constant/validation-form.constant';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,6 +13,7 @@ import { signUpformValidationMessages } from 'src/app/core/constant/validation-f
 })
 export class SignupComponent implements OnInit {
   isEyeVisible = true;
+  loginLoader = false;
 
   /**
    * @description Signup Form
@@ -51,12 +55,30 @@ export class SignupComponent implements OnInit {
    */
   signUpFormValidationMessages = signUpformValidationMessages;
 
-  constructor() { }
+  constructor(private authService: AuthService,
+    private notificationService: NotificationService, private router: Router) { }
 
   ngOnInit() {
   }
-
-  onSubmit() { }
+  /**
+   * @description:to submit signup form 
+   */
+  onSubmit() {
+    this.authService.createUser(this.signUpForm.value).subscribe((res: any) => {
+      this.notificationService.showSuccess('SignUp Successfully', '', 3000);
+      this.router.navigate(['/user']);
+      this.loginLoader = false;
+    },
+      (error) => {
+        this.loginLoader = false;
+        if (error.status === 400) {
+          this.notificationService.showError(error.error.msg, '', 3000);
+        } else {
+          this.notificationService.showError(error.statusText, '', 3000);
+        }
+      }
+    );
+  }
 
   /**
    * @description toggle visibility
