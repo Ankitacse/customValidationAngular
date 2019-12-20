@@ -96,8 +96,8 @@
                     <div class="login-form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>Password:</mat-label>
-                            <input [type]="isEyeVisible?'text':'password'" matInput formControlName="password">
-                            <mat-icon matSuffix (click)="isVisible()">{{isEyeVisible?'visibility':'visibility_off'}}
+                            <input [type]="!isEyeVisible?'text':'password'" matInput formControlName="password">
+                            <mat-icon matSuffix (click)="isVisible()">{{!isEyeVisible?'visibility':'visibility_off'}}
                             </mat-icon>
                         </mat-form-field>
 
