@@ -7,16 +7,18 @@ export class UtilityService {
 
   constructor() { }
 
+  /**
+   * @description Convert object to FormData
+   * @param obj form object
+   */
   convertToFormData(obj: any) {
     const fd = new FormData();
-    fd.append('hello', 'world');
+
     for (const key in obj) {
       if (obj.hasOwnProperty(key)) {
         fd.append(key, obj[key].toString());
-        // console.log(`${key} : ${obj[key].toString()}`);
       }
     }
-    // console.log('=====', fd);
     return fd;
   }
 }

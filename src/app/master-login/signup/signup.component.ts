@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatchValidator } from 'src/app/core/validator/confirm.validator';
 import { signUpformValidationMessages } from 'src/app/core/constant/validation-form.constant';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -15,6 +15,8 @@ import { UtilityService } from 'src/app/core/services/utility.service';
 export class SignupComponent implements OnInit {
   isEyeVisible = true;
   loginLoader = false;
+  imagePreview: any = 'assets/images/user.svg';
+  profileImage: File;
 
   /**
    * @description Signup Form
@@ -65,14 +67,35 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  /**
+   * @description:image picker
+   */
+  onImagePicked(event: Event) {
+    // image store
+    this.profileImage = (event.target as HTMLInputElement).files[0];
+
+    // image preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = reader.result as string;
+    };
+    reader.readAsDataURL(this.profileImage);
+  }
+
   /**
    * @description:to submit signup form
    */
   onSubmit() {
-    const data = this.utilityService.convertToFormData(this.signUpForm.value);
-    data.append('file', 'ssssssssssss');
-    this.authService.createUser(data).subscribe((res: any) => {
-      this.notificationService.showSuccess('Signup Successfully', '', 3000);
+    let data = this.signUpForm.value;
+
+    if ( this.profileImage ) {
+      data = this.utilityService.convertToFormData(this.signUpForm.value);
+      data.append('image', this.profileImage);
+    }
+
+    this.authService.createUser(data).subscribe(() => {
+      this.notificationService.showSuccess('SignUp Successfully', '', 3000);
       this.router.navigate(['/user']);
       this.loginLoader = false;
     },
