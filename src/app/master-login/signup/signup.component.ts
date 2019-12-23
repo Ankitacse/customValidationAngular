@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
-import { MatchValidator } from 'src/app/core/helpers/confirm.validator';
+import { MatchValidator } from 'src/app/core/validator/confirm.validator';
 import { signUpformValidationMessages } from 'src/app/core/constant/validation-form.constant';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { Router } from '@angular/router';
+import { UtilityService } from 'src/app/core/services/utility.service';
 
 @Component({
   selector: 'app-signup',
@@ -55,17 +56,23 @@ export class SignupComponent implements OnInit {
    */
   signUpFormValidationMessages = signUpformValidationMessages;
 
-  constructor(private authService: AuthService,
-    private notificationService: NotificationService, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private notificationService: NotificationService,
+    private router: Router,
+    private utilityService: UtilityService
+    ) { }
 
   ngOnInit() {
   }
   /**
-   * @description:to submit signup form 
+   * @description:to submit signup form
    */
   onSubmit() {
-    this.authService.createUser(this.signUpForm.value).subscribe((res: any) => {
-      this.notificationService.showSuccess('SignUp Successfully', '', 3000);
+    const data = this.utilityService.convertToFormData(this.signUpForm.value);
+    data.append('file', 'ssssssssssss');
+    this.authService.createUser(data).subscribe((res: any) => {
+      this.notificationService.showSuccess('Signup Successfully', '', 3000);
       this.router.navigate(['/user']);
       this.loginLoader = false;
     },
