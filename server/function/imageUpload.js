@@ -48,6 +48,18 @@ async function resizeImage(imageName) {
     })
 }
 
+/**
+ * @description Get File Extension
+ * @param mimetype: String
+ * @example image/png
+ */
+function makeFileExt(mimetype) {
+    if (mimetype) {
+        const foleExt = mimetype.split('/')[1];
+        return foleExt;
+    }
+}
+
 module.exports = {
     resizeImage,
     singleImageUpload
