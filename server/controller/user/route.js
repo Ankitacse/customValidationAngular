@@ -6,15 +6,19 @@ const jwt = require('jsonwebtoken')
 const User = require('./model')
 const imageUpload = require('../../function/imageUpload')
 
-
 /**
  * Cteate new user
  */
-router.post('/', imageUpload.singleImageUpload.single('image'), (req, res, next) => {
+router.post('/', imageUpload.singleImageUpload.single('image'), async (req, res, next) => {
   let newUser = new User(req.body)
-
+  if (req.file) {
+    await imageUpload.resizeImage(req.file.filename);
+    newUser.profileImage = req.file.filename;
+  }
+  
   User.createUser(newUser, (err, user) => {
     if (err) {
+      console.log(err.toString());
       return res.status(400).json({
         msg: err.toString()
       })
