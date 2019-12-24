@@ -3,7 +3,9 @@ const bcrypt = require('bcryptjs')
 const crypto = require('crypto')
 const util = require('util')
 
-// User Schema
+/**
+ * User Schema
+ */
 const UserSchema = mongoose.Schema({
   jobTitle: {
     type: String,
@@ -54,10 +56,16 @@ const UserSchema = mongoose.Schema({
 
 const User = module.exports = mongoose.model('User', UserSchema)
 
+/**
+ * Checking User Id
+ */
 module.exports.getUserById = function (id, callback) {
   User.findById(id, callback)
 }
 
+/**
+ * Checking User Username
+ */
 module.exports.getUserByuserName = function (userName, callback) {
   const query = {
     userName: userName
@@ -65,6 +73,9 @@ module.exports.getUserByuserName = function (userName, callback) {
   User.findOne(query, callback)
 }
 
+/**
+ * Checking User Email
+ */
 module.exports.getUserByEmail = function (email, callback) {
   const query = {
     email: email
@@ -72,6 +83,9 @@ module.exports.getUserByEmail = function (email, callback) {
   User.findOne(query, callback)
 }
 
+/**
+ * Listing User
+ */
 module.exports.listUsers = function (filter, callback) {
   var perPage = 10
   if (filter.per_page) {
@@ -129,7 +143,9 @@ module.exports.listUsers = function (filter, callback) {
   User.find(query, callback).skip(pageNumber > 0 ? ((pageNumber - 1) * perPage) : 0).limit(perPage).sort(sort)
 }
 
-// Create User
+/**
+ * Create User
+ */
 module.exports.createUser = function (newUser, callback) {
   if (newUser.connected_profile_id) {
     newUser.save(function (err) {
@@ -157,17 +173,21 @@ module.exports.createUser = function (newUser, callback) {
   }
 }
 
-// Update User
-module.exports.updateUser = function (id, userIdForCheck, updateUser, callback) {
+/**
+ * Update User
+ */
+module.exports.updateUser = function (id, updateUser, callback) {
   User.findById(id, function (err, user) {
     if (err) callback(new Error(err))
-    if (userIdForCheck.toString() !== user._id.toString()) return callback(new Error('you can only update your own user'))
     updateUser.updatedAt = new Date()
     user.set(updateUser)
     user.save(callback)
   })
 }
 
+/**
+ * Compare Password
+ */
 module.exports.comparePassword = function (password, hash, callback) {
   bcrypt.compare(password, hash, (err, isMatch) => {
     if (err) {
@@ -178,11 +198,20 @@ module.exports.comparePassword = function (password, hash, callback) {
   })
 }
 
-//Recovery Pin
+/**
+ * Recovery Pin
+ */
 module.exports.recoveryPIN = function (recoveryPIN, userName, callback) {
-  User.findOne({recoveryPIN: recoveryPIN, userName: userName }, function (err, user) {
+  User.findOne({ recoveryPIN: recoveryPIN, userName: userName }, function (err, user) {
     if (err) callback(new Error(err))
-    
+
     callback(null, user)
   })
+}
+
+/**
+ * Delete User
+ */
+module.exports.deleteUser = function (id, callback) {
+  User.findOneAndDelete({ _id: id }, callback)
 }

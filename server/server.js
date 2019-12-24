@@ -54,7 +54,7 @@ app.use(express.static(path.join(__dirname, 'uploads')))
  * import route module
  */
 require('./controller/user')(app)
-
+require('./controller/customer')(app)
 /**
  * run front end of jewelrypro
  */

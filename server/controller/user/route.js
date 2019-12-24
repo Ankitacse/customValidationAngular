@@ -6,9 +6,28 @@ const jwt = require('jsonwebtoken')
 const User = require('./model')
 const imageUpload = require('../../function/imageUpload')
 
+/**
+ * @description Listing user
+ */
+router.get('/user_list', jwtAuth, (req, res, next) => {
+  User.listUsers(req.query, (err, users) => {
+    if (err) {
+      return res.status(400).json({
+        msg: err.toString()
+      })
+    }
+
+    if (!users) {
+      return res.status(404).json({
+        msg: 'User not found'
+      })
+    }
+    return res.status(200).json(users)
+  })
+})
 
 /**
- * Cteate new user
+ * @description Cteate new user
  */
 router.post('/', imageUpload.singleImageUpload.single('image'), (req, res, next) => {
   let newUser = new User(req.body)
@@ -25,7 +44,7 @@ router.post('/', imageUpload.singleImageUpload.single('image'), (req, res, next)
 })
 
 /**
- * User login
+ * @description User login
  */
 router.post('/login', (req, res, next) => {
   const userName = req.body.userName
@@ -55,8 +74,8 @@ router.post('/login', (req, res, next) => {
         const token = jwt.sign({
           user: user
         }, config.SECRET_KEY, {
-          expiresIn: 33868800 // 1 week
-        })
+            expiresIn: 33868800 // 1 week
+          })
 
         return res.status(201).json({
           token: token,
@@ -71,31 +90,34 @@ router.post('/login', (req, res, next) => {
   })
 })
 
-router.post('/recovery_pin',(req,res,next)=>{
+/**
+ * @description Recovery Pin
+ */
+router.post('/recovery_pin', (req, res, next) => {
   const userName = req.body.userName
   const recoveryPIN = req.body.recoveryPIN
-  
-  User.getUserByuserName(userName, (err,user) =>{
+
+  User.getUserByuserName(userName, (err, user) => {
     if (err) {
       return res.status(400).json({
         msg: err.toString()
       })
     }
-    
-    if(!user){
+
+    if (!user) {
       return res.status(400).json({
         msg: 'User not found'
       })
     }
 
-    User.recoveryPIN(recoveryPIN, user.userName, (err, users)=>{
+    User.recoveryPIN(recoveryPIN, user.userName, (err, users) => {
       if (err) {
         return res.status(400).json({
           msg: err.toString()
         })
       }
-      
-      if(users) {
+
+      if (users) {
         return res.status(201).json({
           user: user
         })
@@ -104,9 +126,43 @@ router.post('/recovery_pin',(req,res,next)=>{
           msg: 'Wrong Recovery PIN'
         })
       }
-     
+
     })
   })
 })
 
+/**
+ * @description Update User
+ */
+router.put('/update/:id', jwtAuth, (req, res, next) => {
+
+  User.updateUser(req.params.id, req.body, (err, user) => {
+    if (err) {
+      return res.status(400).json({
+        msg: err.toString()
+      })
+    }
+
+    return res.status(201).json({
+      user: user
+    })
+  })
+})
+
+/**
+ * @description Delete User
+ */
+router.delete('/delete/:id',jwtAuth, (req,res)=>{
+  User.deleteUser(req.params.id,(err,user)=>{
+    if(err) {
+      return res.status(400).json({
+        msg: err.toString()
+      })
+    }
+
+    return res.status(201).json({
+      msg: "User Deleted"
+    })
+  })
+})
 module.exports = router
