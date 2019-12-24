@@ -147,41 +147,55 @@ module.exports.listUsers = function (filter, callback) {
  * Create User
  */
 module.exports.createUser = function (newUser, callback) {
-  if (newUser.connected_profile_id) {
-    newUser.save(function (err) {
-      if (err) return callback(new Error(err))
-      return callback(null, newUser)
-    })
-  } else {
-    bcrypt.genSalt(10, (err, salt) => {
+
+  bcrypt.genSalt(10, (err, salt) => {
+    if (err) {
+      return callback(new Error(err))
+    }
+    bcrypt.hash(newUser.password, salt, (err, hash) => {
       if (err) {
         return callback(new Error(err))
       }
-      bcrypt.hash(newUser.password, salt, (err, hash) => {
-        if (err) {
-          return callback(new Error(err))
-        }
-        newUser.password = hash
-        newUser.email_activation_key = crypto.randomBytes(20).toString('hex')
-        newUser.save(function (err) {
-          if (err) return callback(new Error(err))
+      newUser.password = hash
+      newUser.email_activation_key = crypto.randomBytes(20).toString('hex')
+      newUser.save(function (err) {
+        if (err) return callback(new Error(err))
 
-          return callback(null, newUser)
-        })
+        return callback(null, newUser)
       })
     })
-  }
+  })
+
 }
 
 /**
  * Update User
  */
 module.exports.updateUser = function (id, updateUser, callback) {
+
   User.findById(id, function (err, user) {
     if (err) callback(new Error(err))
-    updateUser.updatedAt = new Date()
-    user.set(updateUser)
-    user.save(callback)
+    if (updateUser.password) {
+      bcrypt.genSalt(10, (err, salt) => {
+        if (err) {
+          return callback(new Error(err))
+        }
+
+        bcrypt.hash(updateUser.password, salt, (err, hash) => {
+          if (err) {
+            return callback(new Error(err))
+          }
+          updateUser.password = hash
+          user.set(updateUser)
+          user.save(callback)
+        })
+      })
+
+    } else {
+      updateUser.updatedAt = new Date()
+      user.set(updateUser)
+      user.save(callback)
+    }
   })
 }
 
