@@ -1,7 +1,7 @@
 const customers = require('./route')
 
-function initUser(app) {
+function initCustomer(app) {
   app.use('/api/customers', customers)
 }
 
-module.exports = initUser
+module.exports = initCustomer

@@ -165,4 +165,22 @@ router.delete('/delete/:id',jwtAuth, (req,res)=>{
     })
   })
 })
+
+/**
+ * @description New Password
+ */
+router.put('/newPassword/:id',jwtAuth , (req,res)=>{
+  User.updateUser(req.params.id, req.body, (err, user) => {
+    if (err) {
+      return res.status(400).json({
+        msg: err.toString()
+      })
+    }
+
+    return res.status(201).json({
+      user: user
+    })
+  })
+})
+
 module.exports = router

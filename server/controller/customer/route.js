@@ -61,14 +61,14 @@ router.get('/customer_list', jwtAuth, (req, res, next) => {
 router.post('/', (req, res, next) => {
   let newCustomer = new Customer(req.body)
 
-  Customer.createCustomer(newCustomer, (err, user) => {
+  Customer.createCustomer(newCustomer, (err, customer) => {
     if (err) {
       return res.status(400).json({
         msg: err.toString()
       })
     }
 
-    return res.status(201).json(user)
+    return res.status(201).json(customer)
   })
 })
 

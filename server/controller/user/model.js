@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 const bcrypt = require('bcryptjs')
 const crypto = require('crypto')
 const util = require('util')
@@ -6,7 +7,8 @@ const util = require('util')
 /**
  * User Schema
  */
-const UserSchema = mongoose.Schema({
+const UserSchema = new Schema({
+  _id: Schema.Types.ObjectId,
   jobTitle: {
     type: String,
     required: true

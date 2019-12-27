@@ -55,6 +55,8 @@ app.use(express.static(path.join(__dirname, 'uploads')))
  */
 require('./controller/user')(app)
 require('./controller/customer')(app)
+require('./controller/appraisal')(app)
+require('./controller/productType')(app)
 /**
  * run front end of jewelrypro
  */
