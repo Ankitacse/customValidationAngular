@@ -28,7 +28,7 @@ router.get('/get_appraisal_number', jwtAuth, (req, res) => {
     }
 
     return res.status(201).json({
-      appraisalNumber: "CUS-000001"
+      appraisalNumber: "APR-000001"
     })
   })
 

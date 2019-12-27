@@ -15,7 +15,7 @@ const AppraisalSchema = new Schema({
     },
     userId: {
         type: Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'User'
     },
      productType: {
         type: Schema.Types.ObjectId,
