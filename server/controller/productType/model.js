@@ -1,12 +1,10 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
 const util = require('util')
 
 /**
  * ProductType Schema
  */
-const ProductTypeSchema = new Schema({
-    _id: Schema.Types.ObjectId,
+const ProductTypeSchema = mongoose.Schema({
     title: {
         type: String,
         required: true

@@ -7,8 +7,7 @@ const util = require('util')
 /**
  * Appraisal Schema
  */
-const AppraisalSchema = new Schema({
-    //_id: Schema.Types.ObjectId,
+const AppraisalSchema = mongoose.Schema({
     customerId: {
         type: Schema.Types.ObjectId,
         ref: 'Customer'
@@ -141,7 +140,14 @@ module.exports.listAppraisal = function (filter, callback) {
         }
     }
 
-    Appraisal.find(query, callback).skip(pageNumber > 0 ? ((pageNumber - 1) * perPage) : 0).limit(perPage).sort(sort)
+    Appraisal.find(query, callback).skip(pageNumber > 0 ? ((pageNumber - 1) * perPage) : 0).limit(perPage).sort(sort).populate('customerId')
+    .populate('userId')
+    .populate({
+        path: 'product.productType',
+        populate: {
+            path: 'productType'
+        }
+    })
 }
 
 /**

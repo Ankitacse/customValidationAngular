@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
 const bcrypt = require('bcryptjs')
 const crypto = require('crypto')
 const util = require('util')
@@ -8,7 +7,6 @@ const util = require('util')
  * Customer Schema
  */
 const CustomerSchema = mongoose.Schema({
-    _id: Schema.Types.ObjectId,
     customerNumber: {
         type: String,
         required: true
