@@ -7,6 +7,7 @@ import { SidebarComponent } from './layouts/sidebar/sidebar.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 
+
 @NgModule({
   declarations: [
     MasterDashboardComponent,

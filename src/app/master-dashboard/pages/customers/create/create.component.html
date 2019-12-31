@@ -1,0 +1,114 @@
+<div class="body-wrap">
+	<div class="search-row">
+		<h2>Create Customer</h2>
+		<div class="search-col">
+			<ul>
+				<li>
+					<a class="btn secondary btn-loder">Cancel</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+						<a class="btn secondary btn-loder">Save</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+		<div class="custom-form">
+			<mat-card>
+				<div class="custom-form-col">
+					<mat-form-field appearance="outline">
+						<mat-label>Customer Number: <span>{{customerNumber}}</span></mat-label>
+						<input type="text" readonly matInput formControlName="customerNumber">
+					</mat-form-field>
+				</div>
+				<div class="custom-form-col">
+					<mat-form-field appearance="outline">
+						<mat-label>First Name:</mat-label>
+						<input type="text" matInput formControlName="firstName">
+					</mat-form-field>
+				</div>
+				<div class="custom-form-col">
+					<mat-form-field appearance="outline">
+						<mat-label>Last Name:</mat-label>
+						<input type="text" matInput formControlName="lastName">
+					</mat-form-field>
+				</div>
+
+				<div class="custom-form-col">
+					<mat-form-field appearance="outline">
+						<mat-label>Customer Type:</mat-label>
+						<input type="text" matInput formControlName="customerType">
+					</mat-form-field>
+				</div>
+				<div class="custom-form-col">
+					<mat-form-field appearance="outline">
+						<mat-label>Email:</mat-label>
+						<input type="text" matInput formControlName="email">
+					</mat-form-field>
+				</div>
+				<div class="custom-form-col">
+					<mat-checkbox></mat-checkbox>
+					<span class="check-text">Yes! I want to be the first to hear about promotions from Bucci's Jewelry &
+						Design</span>
+				</div>
+				<div class="custom-form-col">
+					<mat-form-field appearance="outline">
+						<mat-label>Address 1:</mat-label>
+						<input type="text" matInput formControlName="address1">
+					</mat-form-field>
+				</div>
+				<div class="custom-form-col">
+					<mat-form-field appearance="outline">
+						<mat-label>Address 2:</mat-label>
+						<input type="text" matInput formControlName="address2">
+					</mat-form-field>
+				</div>
+				<div class="custom-form-col">
+					<mat-form-field appearance="outline">
+						<mat-label>Date of Birth:</mat-label>
+						<input matInput [matDatepicker]="pickerdob">
+						<mat-datepicker-toggle matSuffix [for]="pickerdob"></mat-datepicker-toggle>
+						<mat-datepicker #pickerdob></mat-datepicker>
+					</mat-form-field>
+				</div>
+				<div class="custom-form-col">
+					<mat-form-field appearance="outline">
+						<mat-label>Home Phone:</mat-label>
+						<input type="text" matInput formControlName="homePhone">
+					</mat-form-field>
+				</div>
+				<div class="custom-form-col">
+					<mat-form-field appearance="outline">
+						<mat-label>Mobile Phone:</mat-label>
+						<input type="text" matInput formControlName="mobilePhone">
+					</mat-form-field>
+				</div>
+				<div class="custom-form-col">
+					<mat-form-field appearance="outline">
+						<mat-label>Work Phone:</mat-label>
+						<input type="text" matInput formControlName="workPhone">
+					</mat-form-field>
+				</div>
+				<div class="custom-form-col">
+					<mat-form-field appearance="outline">
+						<mat-label>Spouse Full Name:</mat-label>
+						<input type="text" matInput formControlName="spouseFullName">
+					</mat-form-field>
+				</div>
+				<div class="custom-form-col">
+					<mat-form-field appearance="outline">
+						<mat-label>Choose a date</mat-label>
+						<input matInput [matDatepicker]="picker">
+						<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+						<mat-datepicker #picker></mat-datepicker>
+					</mat-form-field>
+				</div>
+				<div class="custom-form-row">
+					<a class="btn createbt">Save</a>
+				</div>
+			</mat-card>
+		</div>
+	</form>
+</div>
