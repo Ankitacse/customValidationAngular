@@ -1,7 +1,7 @@
 <div class="body-wrap">
     <div class="repairs-table">
         <div class="search-row">
-            <h2>Open Repairs Task</h2>
+            <h2>Open Customers Task</h2>
             <div class="search-col">
                 <ul>
                     <li class="s-box">
@@ -11,7 +11,7 @@
                         </form>
                     </li>
                     <li>
-                        <button matRipple class="btn secondary btn-loder" type="button">Create</button>
+                        <button matRipple class="btn secondary btn-loder" type="button" [routerLink]="['/app/create-customer']">Create</button>
                     </li>
                     <li>
                         <button matRipple class="btn createbt" type="button"> Export</button>
@@ -37,32 +37,32 @@
             </mat-card>
         </div>
 
-        <div [@listAnimation]="items.length">
-            <div *ngFor='let item of items' class="table-rept">
+        <div [@listAnimation]="allCustomer.length">
+            <div *ngFor='let item of allCustomer' class="table-rept">
                 <mat-card>
                     <div class="col-1">
                         <mat-checkbox></mat-checkbox>
                     </div>
-                    <div class="col-2">CUS-005293</div>
+                    <div class="col-2">{{item.customerNumber}}</div>
 
                     <div class="col-3">
                         <svg width="35" height="35" viewBox="0 0 20 20">
                             <path
                                 d="M10 5L8 3H3c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1h-5z" />
-                        </svg> Damon Zappariello
+                        </svg>{{item.firstName}} {{item.lastName}} 
                     </div>
 
                     <div class="col-3">
-                        <a href="mailto:chrissindoni@gmail.com">chrissindoni@gmail.com</a>
+                        <a href="mailto:chrissindoni@gmail.com">{{item.email}}</a>
                     </div>
                     <div class="col-4">
-                        (609) 287-3427
+                        {{item.mobilePhone}}
                     </div>
                     <div class="col-4">
-                        <dt>13.12.2019</dt>
+                        <dt>{{item.birthday}}</dt>
                     </div>
                     <div class="col-4">
-                        $0.00
+                        ${{item.livevalue}}
                     </div>
 
                     <div class="col-4">

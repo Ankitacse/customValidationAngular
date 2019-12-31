@@ -31,7 +31,11 @@ router.get('/user_list', jwtAuth, (req, res, next) => {
  */
 router.post('/', imageUpload.singleImageUpload.single('image'), (req, res, next) => {
   let newUser = new User(req.body)
-
+  if (req.file) {
+    imageUpload.resizeImage(req.file.filename);
+    newUser.profileImage = req.file.filename;
+  }
+  
   User.createUser(newUser, (err, user) => {
     if (err) {
       return res.status(400).json({

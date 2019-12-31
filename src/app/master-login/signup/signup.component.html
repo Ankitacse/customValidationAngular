@@ -50,11 +50,13 @@
                 </div>
                 <div class="regi-col-3">
                     <div class="upload-img">
-                        <img alt="" src="assets/images/user.svg" />
+                        <!-- <img alt="" src="assets/images/user.svg" /> -->
+                        <img [src]="imagePreview">
                     </div>
-                    <button type="button" class="btn primary">
+                    <button type="button" class="btn primary" (click)="filePicker.click()">
                         <span>Upload Photo</span>
                     </button>
+                    <input type="file" #filePicker (change)="onImagePicked($event)">
                 </div>
             </div>
             <div class="form-wrap">
@@ -96,8 +98,8 @@
                     <div class="login-form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>Password:</mat-label>
-                            <input [type]="isEyeVisible?'text':'password'" matInput formControlName="password">
-                            <mat-icon matSuffix (click)="isVisible()">{{isEyeVisible?'visibility':'visibility_off'}}
+                            <input [type]="!isEyeVisible?'text':'password'" matInput formControlName="password">
+                            <mat-icon matSuffix (click)="isVisible()">{{!isEyeVisible?'visibility':'visibility_off'}}
                             </mat-icon>
                         </mat-form-field>
 

@@ -8,6 +8,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './core/services/http-interceptor.service';
 import { GlobalErrorsService } from './core/services/global-errors.service';
 
+
 @NgModule({
   declarations: [
     AppComponent

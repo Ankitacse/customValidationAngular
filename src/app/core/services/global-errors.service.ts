@@ -32,7 +32,7 @@ export class GlobalErrorsService {
    * @param error Error object
    */
   getClientErrorMessage(error: Error): string {
-    const errorMessage = error.message ? error.message : this.commonErrorMessage;
+    const errorMessage = error ? error : this.commonErrorMessage;
     console.error(errorMessage);
     return this.commonErrorMessage;
   }
