@@ -12,7 +12,10 @@
     align-items: center;
     justify-content: center;
 }
-
+@mixin flex-space-between{
+    display: flex;
+    justify-content: space-between;
+}
 @mixin transition{
     transition: all .2s;
     -webkit-transition: all .2s;
@@ -23,9 +26,6 @@
     -webkit-transition: 0.5s;
     -moz-transition: 0.5s;
 }
-@mixin absolute-position{
-    position: absolute;
-}
 @mixin relative-position{
     position: relative;
 }
@@ -33,7 +33,15 @@
     top: 50%;
     left: 50%;
 }
+@mixin absolute-position{
+    position: absolute;
+}
 @mixin position-none{
+    top: 0;
+    left: 0;
+}
+@mixin ab-position-none{
+    position: absolute;
     top: 0;
     left: 0;
 }
@@ -54,6 +62,3 @@
 background-image: linear-gradient(90deg, $base-color 20px, $shine-color 70px, $base-color 100px);
 background-size: 300px;
 }
-
-
-

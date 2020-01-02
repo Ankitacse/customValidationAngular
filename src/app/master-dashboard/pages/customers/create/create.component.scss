@@ -1,0 +1,128 @@
+@import "./src/assets/scss/mixin.scss";
+@import "./src/assets/scss/variable.scss";
+.body-wrap{    
+    max-width: $full-width;
+    margin-right: 40px;     
+}
+.createbt{
+    background-color:$azure-light;
+    font-size: 0.9rem;
+    padding: 20px 80px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 10px;    
+    &:hover{
+        background-color:$cyan-blue;
+    }
+}
+.search-row{
+    @include flex-space-between;
+    border-bottom: solid 1px $white;
+    padding-bottom: 20px;
+    position: relative;
+    width: 100%;
+    &:before{            
+        content:"";
+        @include ab-position-none;
+        border-bottom: solid 1px $light-gray;            
+        width: $full-width; 
+        bottom: 0;          
+    }        
+    .search-col{
+        justify-content: flex-end;
+        ul{
+            list-style: none;
+            li{
+                display: inline-block;
+                margin-right: 10px;
+                position: relative;
+                .createbt{
+                    background-color:$azure-light;
+                    font-size: 0.9rem;
+                    padding:10px 30px;
+                    border-radius: 30px;
+                    text-decoration: none;
+                    &:hover{
+                        background-color:$cyan-blue;
+                    }
+                }
+                .secondary{
+                    background-color:$orange;
+                    font-size: 0.9rem;
+                    padding:10px 30px;
+                    border-radius: 30px;
+                    text-decoration: none;
+                    &:hover{
+                        background-color:$cyan-blue;
+                    }
+                }
+                
+
+            }
+        }
+        
+    }
+    h2{
+        font-size: 1.2rem;
+        color:$dark-gray;
+        font-weight: 500;
+        letter-spacing: 1px;            
+        line-height: 45px;
+    }
+} 
+
+.custom-form{
+    margin-top:35px;
+    mat-card{
+        box-shadow:0 0 5px $silver;
+        padding: 30px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        mat-form-field{
+            margin-top: 5px;
+        }       
+        .custom-form-col{
+            width: 31.7%;
+            margin: 4px 9px;
+            p{
+                font-size:.8rem;
+            }
+                                
+        }
+        ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix{
+            padding: 10px 10px 20px;
+        }
+        ::ng-deep .mat-form-field-appearance-outline .mat-form-field-label{
+            margin-top: -.40em;
+        }        
+        ::ng-deep .mat-form-field-suffix{
+            top: 0.75em;
+        } 
+        ::ng-deep .ng-star-inserted span{
+            color: #000;
+        }
+        ::ng-deep .mat-checkbox{
+            margin-top: 22px;
+            display: inline-block;
+        }
+        ::ng-deep .mat-icon-button{
+            height: 2.2em;
+        } 
+        
+       
+        
+    }
+
+}
+.custom-form-row{
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 20px !important;
+}
+.check-text{
+    font-size:.8rem;
+    padding-left: 5px;
+    color: rgba(0,0,0,.6);
+}
