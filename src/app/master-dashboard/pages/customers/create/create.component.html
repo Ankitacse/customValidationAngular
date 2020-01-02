@@ -7,10 +7,10 @@
 					<a class="btn secondary btn-loder">Cancel</a>
 				</li>
 			</ul>
-			
+
 		</div>
 	</div>
-	<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+	<form [formGroup]="customerForm" (ngSubmit)="addCoustomer()">
 		<div class="custom-form">
 			<mat-card>
 				<div class="custom-form-col">
@@ -41,7 +41,7 @@
 				<div class="custom-form-col">
 					<mat-form-field appearance="outline">
 						<mat-label>Email:</mat-label>
-						<input type="text" matInput formControlName="email">
+						<input type="email" matInput formControlName="email">
 					</mat-form-field>
 				</div>
 				<div class="custom-form-col">
@@ -102,7 +102,7 @@
 					</mat-form-field>
 				</div>
 				<div class="custom-form-row">
-					<a class="btn createbt">Save</a>
+					<button class="btn createbt" type="submit">Save</button>
 				</div>
 			</mat-card>
 		</div>

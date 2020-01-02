@@ -30,23 +30,22 @@ export class CreateComponent implements OnInit {
     this.customerForm = this.fb.group({
       _id: [''],
       customerNumber: [''],
-      firstName: ['', [Validators.required, CustomValidators.rangeLength([3, 100])]],
-      lastName: ['', [Validators.required, CustomValidators.rangeLength([3, 100])]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
       // fullName: ['', [Validators.required, CustomValidators.rangeLength([3, 100])]],
-      email: ['', [Validators.required, CustomValidators.email]],
+      email: ['', [Validators.required]],
       emailOptIn: [false],
       address1: ['', [Validators.required]],
       address2: ['', [Validators.required]],
       birthday: [''],
-      mobilePhone: ['', [ Validators.required]],
+      mobilePhone: ['', [Validators.required]],
       homePhone: [''],
       workPhone: [''],
-      spouseFullName: ['', [CustomValidators.rangeLength([3, 100])]],
+      spouseFullName: [''],
       spouseBirthday: [''],
-      customerType : ['', Validators.required]
+      customerType: ['', Validators.required]
     });
     this.customerForm.get('customerType').setValue('Retail');
-
     this.customerForm.get('mobilePhone').valueChanges.subscribe((val) => {
       this.unmaskedMobile = this.maskingInputs('maskSelector');
     });
@@ -65,7 +64,7 @@ export class CreateComponent implements OnInit {
    * @param selector *{string}
    * @param property *{property}
    */
-  maskingInputs (selector) {
+  maskingInputs(selector) {
     const maskOpt = {
       mask: '(000) 000-0000'
     };
@@ -76,13 +75,14 @@ export class CreateComponent implements OnInit {
     return mask.unmaskedValue;
   }
 
-  onSubmit() {
-    const data = {...this.customerForm.value, customerNumber: this.customerNumber};
+  addCoustomer() {
+    console.log('customerForm==', this.customerForm.value)
+    const data = { ...this.customerForm.value, customerNumber: this.customerNumber };
     data.emailOptIn = false;
     data.mobilePhone = this.unmaskedMobile;
     data.homePhone = this.unmaskedHome;
     data.workPhone = this.unmaskedWork;
-    // return false;
+    return false;
     this.customerService.createCustomer(data).subscribe(res => {
       if (res.success) {
         this.router.navigateByUrl('/app/customers');
